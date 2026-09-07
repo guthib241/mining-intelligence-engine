@@ -13,7 +13,7 @@
  {
   "id": "H015",
   "hypothesis": "Orphan/competing-block events (246 observed) cluster with propagation spread and specific eras; propagation spread trend as stale-risk metric",
-  "status": "UNTESTED",
+  "status": "REJECTED",
   "info_gain": 3,
   "impact": 2,
   "p_useful": 0.6,
@@ -58,7 +58,7 @@
  {
   "id": "H014",
   "hypothesis": "Daily hashrate-proxy target (144-block windows, arrival-time based) enables detection of weak external/price signals with n~2000",
-  "status": "UNTESTED",
+  "status": "TESTED (price: rejected)",
   "info_gain": 4,
   "impact": 3,
   "p_useful": 0.5,

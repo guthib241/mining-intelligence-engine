@@ -7,3 +7,5 @@
 {"id": "H005", "status": "REJECTED", "note": "simple price momentum; nonlinear/regime variants untested"}
 {"id": "H007", "status": "CHARACTERIZED (L1 fingerprint), no predictive use"}
 {"id": "H013", "hypothesis": "early-warning / within-epoch detection of hashrate transition", "status": "REJECTED (EXP8/9)"}
+{"id": "H014", "status": "TARGET ESTABLISHED; price sub-hypothesis REJECTED"}
+{"id": "H015", "status": "REJECTED (artifact)"}
