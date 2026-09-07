@@ -1,19 +1,11 @@
 {
- "iteration": 2,
+ "iteration": 3,
  "used": [
   {
-   "id": "CHALLENGE",
-   "at": "2026-09-07T17:22:11.320779+00:00"
-  },
-  {
-   "id": "CHALLENGE",
-   "at": "2026-09-07T17:22:15.636757+00:00"
-  },
-  {
-   "id": "CHALLENGE",
-   "at": "2026-09-07T17:22:18.119311+00:00"
+   "id": "EXP-SHA-LADDER",
+   "at": "2026-09-07T18:27:16.278866+00:00"
   }
  ],
- "opened": "2026-09-07T17:22:08.956050+00:00",
- "note": "build-phase verification"
+ "opened": "2026-09-07T18:00:53.101834+00:00",
+ "note": "iteration 007: SHA-256 learnability ladder (operator-directed)"
 }

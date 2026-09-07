@@ -1,0 +1,266 @@
+{
+ "protocol": "P1",
+ "k": 500,
+ "n": 109,
+ "distribution": {
+  "mean": 0.2739911384259839,
+  "sd": 3.720298443768319,
+  "skew": -0.08190946522270766,
+  "kurtosis": 0.3710558912140276,
+  "pct": {
+   "P1": -8.643758137696988,
+   "P5": -6.278278229446552,
+   "P10": -4.018763147787056,
+   "P25": -2.0665009930498446,
+   "P50": 0.3312298284622536,
+   "P75": 2.79911748212904,
+   "P90": 4.501881779375765,
+   "P95": 5.501613164016601,
+   "P99": 9.44522806961501
+  },
+  "shapiro_p": 0.1404751826351761,
+  "irreducible_sd": 1.9316625762807507,
+  "excess_sd_over_floor": 1.7886358674875684
+ },
+ "autocorrelation": {
+  "lag1": 0.05119106636027755,
+  "lag2": 0.2776759085054275,
+  "lag3": 0.08449448720244349,
+  "lag5": 0.03328605354220146
+ },
+ "autocorr_2se": 0.19156525704423027,
+ "by_covariate": {
+  "cv": {
+   "quartile_MAE": {
+    "Q1": 3.161,
+    "Q2": 2.797,
+    "Q3": 2.917,
+    "Q4": 2.938
+   },
+   "quartile_bias": {
+    "Q1": 1.098,
+    "Q2": 0.165,
+    "Q3": -0.613,
+    "Q4": 0.416
+   },
+   "spearman_vs_abs_resid": -0.008,
+   "p": 0.9306
+  },
+  "spd": {
+   "quartile_MAE": {
+    "Q1": 2.879,
+    "Q2": 2.579,
+    "Q3": 3.071,
+    "Q4": 3.294
+   },
+   "quartile_bias": {
+    "Q1": -0.626,
+    "Q2": 0.011,
+    "Q3": 0.614,
+    "Q4": 1.13
+   },
+   "spearman_vs_abs_resid": 0.044,
+   "p": 0.6513
+  },
+  "difficulty": {
+   "quartile_MAE": {
+    "Q1": 4.073,
+    "Q2": 2.603,
+    "Q3": 2.918,
+    "Q4": 2.185
+   },
+   "quartile_bias": {
+    "Q1": 1.215,
+    "Q2": 0.883,
+    "Q3": -0.305,
+    "Q4": -0.732
+   },
+   "spearman_vs_abs_resid": -0.218,
+   "p": 0.0225
+  },
+  "hist_vol": {
+   "quartile_MAE": {
+    "Q1": 2.589,
+    "Q2": 3.262,
+    "Q3": 3.31,
+    "Q4": 2.135
+   },
+   "quartile_bias": {
+    "Q1": -0.756,
+    "Q2": -0.037,
+    "Q3": 0.968,
+    "Q4": 0.059
+   },
+   "spearman_vs_abs_resid": -0.045,
+   "p": 0.6527
+  },
+  "prev_abs": {
+   "quartile_MAE": {
+    "Q1": 3.708,
+    "Q2": 3.752,
+    "Q3": 2.43,
+    "Q4": 1.836
+   },
+   "quartile_bias": {
+    "Q1": -0.49,
+    "Q2": 0.621,
+    "Q3": 0.724,
+    "Q4": 0.047
+   },
+   "spearman_vs_abs_resid": -0.348,
+   "p": 0.0002
+  },
+  "extrap_mag": {
+   "quartile_MAE": {
+    "Q1": 2.449,
+    "Q2": 3.044,
+    "Q3": 2.748,
+    "Q4": 3.597
+   },
+   "quartile_bias": {
+    "Q1": 0.117,
+    "Q2": 1.266,
+    "Q3": -0.859,
+    "Q4": 0.578
+   },
+   "spearman_vs_abs_resid": 0.163,
+   "p": 0.0906
+  }
+ },
+ "by_regime_year": {
+  "2021": {
+   "n": 6,
+   "MAE": 4.319,
+   "bias": 2.262
+  },
+  "2022": {
+   "n": 26,
+   "MAE": 3.669,
+   "bias": 0.465
+  },
+  "2023": {
+   "n": 27,
+   "MAE": 2.768,
+   "bias": 1.375
+  },
+  "2024": {
+   "n": 27,
+   "MAE": 2.719,
+   "bias": -0.718
+  },
+  "2025": {
+   "n": 23,
+   "MAE": 2.289,
+   "bias": -0.589
+  }
+ },
+ "largest_failures": [
+  {
+   "epoch": 353,
+   "date": "2021-11-28",
+   "actual_pct": 8.0,
+   "pred_pct": -2.72,
+   "resid_pct": 10.72
+  },
+  {
+   "epoch": 358,
+   "date": "2022-02-04",
+   "actual_pct": 4.67,
+   "pred_pct": -4.82,
+   "resid_pct": 9.49
+  },
+  {
+   "epoch": 356,
+   "date": "2022-01-08",
+   "actual_pct": 8.91,
+   "pred_pct": -0.03,
+   "resid_pct": 8.94
+  },
+  {
+   "epoch": 369,
+   "date": "2022-07-07",
+   "actual_pct": -5.14,
+   "pred_pct": 3.71,
+   "resid_pct": -8.85
+  },
+  {
+   "epoch": 367,
+   "date": "2022-06-08",
+   "actual_pct": -2.38,
+   "pred_pct": 6.31,
+   "resid_pct": -8.69
+  },
+  {
+   "epoch": 419,
+   "date": "2024-05-23",
+   "actual_pct": -0.79,
+   "pred_pct": 7.28,
+   "resid_pct": -8.07
+  },
+  {
+   "epoch": 417,
+   "date": "2024-04-24",
+   "actual_pct": -5.79,
+   "pred_pct": 2.22,
+   "resid_pct": -8.01
+  },
+  {
+   "epoch": 447,
+   "date": "2025-06-14",
+   "actual_pct": -7.77,
+   "pred_pct": 0.14,
+   "resid_pct": -7.92
+  }
+ ],
+ "unexplained_variance": {
+  "total_resid_var": 13.840620510704976,
+  "irreducible_var": 3.731320308603587,
+  "excess_var_share": 0.7304080185048343
+ },
+ "screen_bonferroni_p": 0.008333333333333333,
+ "covariates_surviving": [
+  "prev_abs"
+ ],
+ "capture_rates": {
+  "0": {
+   "naive": 3.607,
+   "champ": 3.273,
+   "achievable_floor": 1.777,
+   "capture_vs_achievable_pct": 18.3,
+   "capture_vs_perfect_pct": 9.3,
+   "remaining_reducible_MAE": 1.496
+  },
+  "300": {
+   "naive": 3.607,
+   "champ": 3.228,
+   "achievable_floor": 1.64,
+   "capture_vs_achievable_pct": 19.3,
+   "capture_vs_perfect_pct": 10.5,
+   "remaining_reducible_MAE": 1.588
+  },
+  "500": {
+   "naive": 3.607,
+   "champ": 2.955,
+   "achievable_floor": 1.541,
+   "capture_vs_achievable_pct": 31.6,
+   "capture_vs_perfect_pct": 18.1,
+   "remaining_reducible_MAE": 1.414
+  },
+  "1000": {
+   "naive": 3.607,
+   "champ": 2.057,
+   "achievable_floor": 1.262,
+   "capture_vs_achievable_pct": 66.1,
+   "capture_vs_perfect_pct": 43.0,
+   "remaining_reducible_MAE": 0.795
+  },
+  "1500": {
+   "naive": 3.607,
+   "champ": 1.101,
+   "achievable_floor": 0.899,
+   "capture_vs_achievable_pct": 92.5,
+   "capture_vs_perfect_pct": 69.5,
+   "remaining_reducible_MAE": 0.202
+  }
+ }
+}

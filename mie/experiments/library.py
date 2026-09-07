@@ -50,3 +50,9 @@ def challenge(cfg):
     g = promotion_gates(c)
     return {"comparison": c, "gates": g, "metrics": {r: c["table"][r]["MAE"] for r in c["table"]}, "percentiles": c["table"]["candidate"]["pct"], "verdict": g["verdict"],
             "next_action": "promote via research/promote.py only if all gates pass and an independent rerun agrees" if g["all_passed"] else "record and move on"}
+
+
+@register("EXP-SHA-LADDER", "SHA-256 output bits are learnable from input bits (round-reduced ladder + differential analysis)", ["synthetic: generated SHA-256 pairs"], primary=True)
+def sha_ladder(cfg):
+    from .sha_ladder import run
+    return run(cfg)

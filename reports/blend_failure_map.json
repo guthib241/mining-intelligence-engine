@@ -1,0 +1,100 @@
+{
+ "protocol": "P1 k=500",
+ "champion_MAE": 2.955,
+ "achievable_floor_MAE": 1.541,
+ "reducible_MAE_remaining": 1.414,
+ "note": "Ranking is by ESTIMATED EXPLAINABLE variance, not by how easy the feature is to compute.",
+ "sources": [
+  {
+   "id": "S1",
+   "source": "Irreducible Poisson randomness of the remaining 1,515 blocks",
+   "share_of_residual_variance": 0.27,
+   "explainable": 0.0,
+   "economic_value": 0,
+   "data_availability": "n/a",
+   "horizon": "n/a",
+   "complexity": 0,
+   "fdr_risk": 0,
+   "verdict": "NOT ATTACKABLE - this is the floor, no model can cross it"
+  },
+  {
+   "id": "S2",
+   "source": "Real hashrate change during the remaining epoch (fleet deployment, curtailment, machine on/off)",
+   "share_of_residual_variance": 0.73,
+   "explainable_with_current_data": 0.05,
+   "explainable_with_deployment_data": 0.3,
+   "economic_value": "high - this IS the difficulty gap",
+   "data_availability": "NOT IN OUR DATA. Public proxies exist (public-miner monthly hashrate reports, ASIC shipments, grid curtailment events)",
+   "horizon": "days-weeks ahead of the effect",
+   "complexity": 2,
+   "fdr_risk": 3,
+   "verdict": "THE REAL BOTTLENECK - a missing-information problem, not a modelling problem"
+  },
+  {
+   "id": "S3",
+   "source": "Heteroskedasticity: error size depends on prior-epoch adjustment magnitude",
+   "evidence": "spearman(prev|adj|, |resid|) = -0.348, p=0.0002, SURVIVES Bonferroni (p<0.0083); quartile MAE 3.71 -> 1.84",
+   "share_of_residual_variance": "variance-of-variance, not mean",
+   "explainable": "interval width, possibly WLS point estimate",
+   "economic_value": "moderate - sharper intervals raise hedging value even at equal MAE",
+   "data_availability": "HAVE IT NOW",
+   "horizon": "known at forecast time",
+   "complexity": 1,
+   "fdr_risk": 1,
+   "verdict": "ATTACK NOW - only Bonferroni survivor in the screen"
+  },
+  {
+   "id": "S4",
+   "source": "Residual autocorrelation at lag 2 (rho=0.278 vs 2se=0.192, z~2.9; 4 lags tested)",
+   "share_of_residual_variance": 0.08,
+   "explainable": 0.08,
+   "economic_value": "low-moderate",
+   "data_availability": "HAVE IT NOW",
+   "horizon": "immediate",
+   "complexity": 1,
+   "fdr_risk": 3,
+   "verdict": "ATTACK NOW but treat as marginal - single test, could be multiple-testing noise"
+  },
+  {
+   "id": "S5",
+   "source": "Structural-break epochs (China ban, 2021-11 to 2022-07 dominate the largest 8 failures)",
+   "share_of_residual_variance": "concentrated in 6-8 epochs",
+   "explainable": "only with exogenous news/policy data",
+   "economic_value": "high but rare",
+   "data_availability": "NOT IN OUR DATA",
+   "horizon": "unpredictable by construction",
+   "complexity": 4,
+   "fdr_risk": 4,
+   "verdict": "DO NOT ATTACK - n too small, mechanism exogenous, EXP9/EXP22 already failed here"
+  },
+  {
+   "id": "S6",
+   "source": "Difficulty level / era trend (rho=-0.218, p=0.023)",
+   "share_of_residual_variance": 0.04,
+   "explainable": 0.0,
+   "economic_value": "none",
+   "data_availability": "have",
+   "horizon": "n/a",
+   "complexity": 1,
+   "fdr_risk": 4,
+   "verdict": "REJECT - fails Bonferroni, and is a proxy for calendar era (confounded with S5)"
+  },
+  {
+   "id": "S7",
+   "source": "Timing dispersion / observed pace / trailing volatility",
+   "share_of_residual_variance": 0.0,
+   "evidence": "cv p=0.93, spd p=0.65, hist_vol p=0.65 - all null",
+   "verdict": "REJECT - screened and dead"
+  }
+ ],
+ "ranking_for_attack": [
+  "S3 (have data, survives correction, improves calibration)",
+  "S4 (have data, marginal)",
+  "S2 (the real prize, needs new data)"
+ ],
+ "explicitly_not_attacked": [
+  "S1 physically impossible",
+  "S5 too few events + exogenous",
+  "S6/S7 screened null"
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "headline": "73% of BLEND-v1's residual variance is real hashrate movement during the un-observed remainder of the epoch. That variable is absent from our data. No model architecture can recover it.",
+ "decomposition_k500": {
+  "champion_MAE_pct": 2.955,
+  "irreducible_floor_MAE_pct": 1.541,
+  "reducible_gap_MAE_pct": 1.414,
+  "reducible_share_of_residual_variance": 0.73,
+  "capture_rate_vs_achievable_now_pct": 31.6
+ },
+ "missing_variables": [
+  {
+   "variable": "Fleet deployment schedule (EH/s coming online, by week)",
+   "expected_information_content": "HIGH - directly is the hashrate drift term",
+   "public_proxy": "Public miners' monthly operational updates (hashrate deployed + guidance), published within days of month-end; covers ~25-30% of network",
+   "reconstruction": "Buildable as a text timeline from archived releases; ~36 monthly observations",
+   "new_data_source": "web_fetch of archived investor updates",
+   "feasible_now": true,
+   "n_limit": "~36 months - low power"
+  },
+  {
+   "variable": "Curtailment / grid events (EH/s switching off)",
+   "expected_information_content": "HIGH in summer, concentrated in Texas",
+   "public_proxy": "ERCOT load & price series; large-load curtailment reports",
+   "reconstruction": "no",
+   "new_data_source": "grid operator data - OUTSIDE sandbox allowlist",
+   "feasible_now": false
+  },
+  {
+   "variable": "ASIC shipments / delivery lead times",
+   "expected_information_content": "MEDIUM, leads deployment by 1-2 quarters",
+   "public_proxy": "manufacturer filings, ASIC price indices",
+   "reconstruction": "partial",
+   "feasible_now": "partial (text)"
+  },
+  {
+   "variable": "Machine-level on/off and efficiency telemetry",
+   "expected_information_content": "HIGH but private",
+   "public_proxy": "none",
+   "feasible_now": false,
+   "note": "human-only dependency"
+  }
+ ],
+ "conclusion": "Priority order per directive section 10 is respected: this is a NEW-INFORMATION problem first, a representation problem second, and NOT a model-complexity problem. Adding a bigger model to the existing inputs cannot cross 1.541pp and is very unlikely to beat 2.955pp by much.",
+ "honest_ceiling_with_current_data": "Estimated 2.6-2.8pp MAE at k=500 (capture ~40-45%) if S3+S4 both work. Reaching the 50% target (2.25pp) almost certainly requires S2 deployment data."
+}

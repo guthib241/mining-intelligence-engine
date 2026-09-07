@@ -1,0 +1,441 @@
+{
+ "implementation_matches_hashlib": true,
+ "N": 40000,
+ "ladder": {
+  "1": {
+   "avalanche_frac_flipped": 0.0038,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 1.0,
+   "z_vs_chance": 100.0,
+   "per_bit": {
+    "bit0": {
+     "logreg": 1.0,
+     "mlp": 1.0,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.5911,
+     "mlp": 0.9881,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.7975,
+     "mlp": 0.9901,
+     "gbt": 0.9991,
+     "best": 0.9991,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 1.0,
+     "mlp": 1.0,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005,
+     "constant": 1
+    },
+    "bit255": {
+     "logreg": 1.0,
+     "mlp": 1.0,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005,
+     "constant": 1
+    }
+   }
+  },
+  "2": {
+   "avalanche_frac_flipped": 0.0,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 1.0,
+   "z_vs_chance": 100.0,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.5011,
+     "mlp": 0.4996,
+     "gbt": 0.4914,
+     "best": 0.5011,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.5003,
+     "mlp": 0.499,
+     "gbt": 0.5118,
+     "best": 0.5118,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.4979,
+     "mlp": 0.4961,
+     "gbt": 0.5001,
+     "best": 0.5001,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 1.0,
+     "mlp": 1.0,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005,
+     "constant": 1
+    },
+    "bit255": {
+     "logreg": 1.0,
+     "mlp": 1.0,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005,
+     "constant": 1
+    }
+   }
+  },
+  "4": {
+   "avalanche_frac_flipped": 0.0678,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 1.0,
+   "z_vs_chance": 100.0,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.5061,
+     "mlp": 0.4963,
+     "gbt": 0.4933,
+     "best": 0.5061,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.4982,
+     "mlp": 0.5013,
+     "gbt": 0.5092,
+     "best": 0.5092,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.496,
+     "mlp": 0.5059,
+     "gbt": 0.4937,
+     "best": 0.5059,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.5473,
+     "mlp": 0.9997,
+     "gbt": 1.0,
+     "best": 1.0,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.9101,
+     "mlp": 0.9921,
+     "gbt": 0.9991,
+     "best": 0.9991,
+     "se": 0.005
+    }
+   }
+  },
+  "6": {
+   "avalanche_frac_flipped": 0.0039,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 0.5082,
+   "z_vs_chance": 1.64,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.4907,
+     "mlp": 0.5007,
+     "gbt": 0.5017,
+     "best": 0.5017,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.5066,
+     "mlp": 0.5017,
+     "gbt": 0.4957,
+     "best": 0.5066,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.5072,
+     "mlp": 0.5001,
+     "gbt": 0.4972,
+     "best": 0.5072,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.4978,
+     "mlp": 0.5012,
+     "gbt": 0.505,
+     "best": 0.505,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.5029,
+     "mlp": 0.497,
+     "gbt": 0.5082,
+     "best": 0.5082,
+     "se": 0.005
+    }
+   }
+  },
+  "8": {
+   "avalanche_frac_flipped": 0.2594,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 0.5135,
+   "z_vs_chance": 2.7,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.4877,
+     "mlp": 0.5135,
+     "gbt": 0.4989,
+     "best": 0.5135,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.4945,
+     "mlp": 0.4987,
+     "gbt": 0.4943,
+     "best": 0.4987,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.5069,
+     "mlp": 0.5041,
+     "gbt": 0.5027,
+     "best": 0.5069,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.4993,
+     "mlp": 0.5011,
+     "gbt": 0.494,
+     "best": 0.5011,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.4984,
+     "mlp": 0.492,
+     "gbt": 0.4986,
+     "best": 0.4986,
+     "se": 0.005
+    }
+   }
+  },
+  "10": {
+   "avalanche_frac_flipped": 0.3125,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 0.5051,
+   "z_vs_chance": 1.02,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.4975,
+     "mlp": 0.4889,
+     "gbt": 0.4923,
+     "best": 0.4975,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.4988,
+     "mlp": 0.497,
+     "gbt": 0.4967,
+     "best": 0.4988,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.4996,
+     "mlp": 0.5043,
+     "gbt": 0.4951,
+     "best": 0.5043,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.4989,
+     "mlp": 0.5017,
+     "gbt": 0.5027,
+     "best": 0.5027,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.4986,
+     "mlp": 0.4965,
+     "gbt": 0.5051,
+     "best": 0.5051,
+     "se": 0.005
+    }
+   }
+  },
+  "12": {
+   "avalanche_frac_flipped": 0.3438,
+   "max_flip_prob_dev": 0.5,
+   "learn_best_acc": 0.5075,
+   "z_vs_chance": 1.5,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.5004,
+     "mlp": 0.4947,
+     "gbt": 0.5015,
+     "best": 0.5015,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.5075,
+     "mlp": 0.4985,
+     "gbt": 0.5011,
+     "best": 0.5075,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.5005,
+     "mlp": 0.4976,
+     "gbt": 0.4942,
+     "best": 0.5005,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.5035,
+     "mlp": 0.4985,
+     "gbt": 0.5003,
+     "best": 0.5035,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.5045,
+     "mlp": 0.504,
+     "gbt": 0.4986,
+     "best": 0.5045,
+     "se": 0.005
+    }
+   }
+  },
+  "16": {
+   "avalanche_frac_flipped": 0.4984,
+   "max_flip_prob_dev": 0.3046,
+   "learn_best_acc": 0.5075,
+   "z_vs_chance": 1.5,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.5075,
+     "mlp": 0.506,
+     "gbt": 0.4965,
+     "best": 0.5075,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.5007,
+     "mlp": 0.502,
+     "gbt": 0.5039,
+     "best": 0.5039,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.5021,
+     "mlp": 0.4996,
+     "gbt": 0.502,
+     "best": 0.5021,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.506,
+     "mlp": 0.5025,
+     "gbt": 0.5,
+     "best": 0.506,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.4971,
+     "mlp": 0.4996,
+     "gbt": 0.4958,
+     "best": 0.4996,
+     "se": 0.005
+    }
+   }
+  },
+  "24": {
+   "avalanche_frac_flipped": 0.4999,
+   "max_flip_prob_dev": 0.0117,
+   "learn_best_acc": 0.5062,
+   "z_vs_chance": 1.24,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.5062,
+     "mlp": 0.4997,
+     "gbt": 0.4976,
+     "best": 0.5062,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.4979,
+     "mlp": 0.4915,
+     "gbt": 0.4987,
+     "best": 0.4987,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.4991,
+     "mlp": 0.5006,
+     "gbt": 0.5,
+     "best": 0.5006,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.5038,
+     "mlp": 0.4928,
+     "gbt": 0.4998,
+     "best": 0.5038,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.499,
+     "mlp": 0.4937,
+     "gbt": 0.496,
+     "best": 0.499,
+     "se": 0.005
+    }
+   }
+  },
+  "64": {
+   "avalanche_frac_flipped": 0.5001,
+   "max_flip_prob_dev": 0.0122,
+   "learn_best_acc": 0.5099,
+   "z_vs_chance": 1.98,
+   "per_bit": {
+    "bit0": {
+     "logreg": 0.505,
+     "mlp": 0.4943,
+     "gbt": 0.5031,
+     "best": 0.505,
+     "se": 0.005
+    },
+    "bit7": {
+     "logreg": 0.4981,
+     "mlp": 0.4955,
+     "gbt": 0.5015,
+     "best": 0.5015,
+     "se": 0.005
+    },
+    "bit31": {
+     "logreg": 0.5037,
+     "mlp": 0.499,
+     "gbt": 0.499,
+     "best": 0.5037,
+     "se": 0.005
+    },
+    "bit100": {
+     "logreg": 0.502,
+     "mlp": 0.5033,
+     "gbt": 0.4959,
+     "best": 0.5033,
+     "se": 0.005
+    },
+    "bit255": {
+     "logreg": 0.5099,
+     "mlp": 0.5007,
+     "gbt": 0.5017,
+     "best": 0.5099,
+     "se": 0.005
+    }
+   }
+  }
+ },
+ "partial": true
+}
