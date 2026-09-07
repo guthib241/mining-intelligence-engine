@@ -1,24 +1,29 @@
 {
  "difficulty_forecast": {
-  "model": "walk-forward OLS blend of pace-extrapolation + prev-epoch adj, 60-epoch window (lib/difficulty.py)",
-  "MAE_pct": {
+  "model_id": "BLEND-v1",
+  "code": "lib/forecast.py walk() with ['extrap','mom']",
+  "data_version": "BTCHDR-2025-12-14",
+  "feature_version": "fv1 (from-start pace extrap, prev-epoch adj)",
+  "protocol": "P1",
+  "commit": "see git HEAD",
+  "scores_MAE_pct": {
    "k0": 3.27,
    "k300": 3.23,
    "k500": 2.95,
    "k1000": 2.06,
    "k1500": 1.1
   },
-  "naive": 3.61,
-  "level": "L4",
+  "uncertainty": "conformal quantiles from 60-epoch residual window; cov50 .44-.60, cov90 .88-.93",
+  "regimes": "2023/24/25 each ~25% better than naive; 2021-22 no gain",
   "challengers_rejected": [
-   "EXP4 Kalman",
-   "EXP7 +price"
+   "Kalman(EXP4)",
+   "+price(EXP7)",
+   "win300/win150/ewma(EXP8)",
+   "CUSUM switch(EXP9)"
   ],
-  "economics": "unquantified; needs hashprice/derivative data"
- },
- "fleet_composition_index": {
-  "model": "per-epoch P(nonce bit7=1), P(bit31=1), P(low byte>=0xE0)",
-  "level": "L1 observation, known method",
-  "predictive_use": "none found (EXP6)"
+  "forecast_value": "~$3.7k/EH/s/epoch vs naive at k=500, P=90k",
+  "decision_value": "\u22480 for binary run/curtail",
+  "realized_value": "none",
+  "level": "L4 + calibrated intervals"
  }
 }

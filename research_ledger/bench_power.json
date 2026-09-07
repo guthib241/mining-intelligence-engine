@@ -1,0 +1,11 @@
+{
+ "false_discovery_control": "PASS (A,I not detected; J flagged by leak check)",
+ "power": {
+  "0.3": 0.2,
+  "0.4": 0.65,
+  "0.5": 1.0,
+  "0.7": 1.0,
+  "1.0": 1.0
+ },
+ "note": "minimum reliably detectable effect ~R2 0.2 at N=400; real-data test set has N=109 -> weak external signals (R2<0.1) are below detection floor"
+}

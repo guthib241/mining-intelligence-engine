@@ -1,0 +1,82 @@
+{
+ "A_pure_noise": {
+  "mae_base": 0.8197,
+  "mae_model": 0.8323,
+  "p": 0.9585712797146476,
+  "detected": false,
+  "expected": false,
+  "leak_check_r_future": -0.031
+ },
+ "B_weak_linear": {
+  "mae_base": 0.8453,
+  "mae_model": 0.8323,
+  "p": 0.036962153993933995,
+  "detected": false,
+  "expected": true,
+  "leak_check_r_future": -0.01
+ },
+ "C_weak_nonlinear": {
+  "mae_base": 0.9395,
+  "mae_model": 0.8428,
+  "p": 0.0013536226463721351,
+  "detected": true,
+  "expected": true,
+  "leak_check_r_future": 0.03
+ },
+ "D_delayed": {
+  "mae_base": 0.8838,
+  "mae_model": 0.8266,
+  "p": 0.0010500339714853426,
+  "detected": true,
+  "expected": true,
+  "leak_check_r_future": 0.072
+ },
+ "E_regime_switch": {
+  "mae_base": 0.9034,
+  "mae_model": 0.8813,
+  "p": 0.10363911685929184,
+  "detected": false,
+  "expected": null,
+  "leak_check_r_future": -0.021
+ },
+ "F_structural_break": {
+  "mae_base": 0.8579,
+  "mae_model": 0.8265,
+  "p": 0.048116194823257984,
+  "detected": false,
+  "expected": null,
+  "leak_check_r_future": 0.002
+ },
+ "G_heteroskedastic": {
+  "mae_base": 1.4603,
+  "mae_model": 1.4917,
+  "p": 0.9428231622356907,
+  "detected": false,
+  "expected": true,
+  "leak_check_r_future": -0.018
+ },
+ "H_confounded": {
+  "mae_base": 0.9378,
+  "mae_model": 0.8862,
+  "p": 0.0007622440621960355,
+  "detected": true,
+  "expected": "confounded",
+  "leak_check_r_future": 0.042
+ },
+ "I_multiple_testing": {
+  "mae_base": 0.7672,
+  "mae_model": 0.7661,
+  "p": 0.23000749269203669,
+  "detected": false,
+  "expected": false,
+  "leak_check_r_future": 0.006
+ },
+ "J_leakage": {
+  "mae_base": 0.7732,
+  "mae_model": 0.7764,
+  "p": 0.6823179139348843,
+  "detected": false,
+  "expected": "leak",
+  "leak_check_r_future": 1.0
+ }
+}

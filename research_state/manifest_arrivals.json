@@ -1,0 +1,23 @@
+{
+ "dataset_id": "BLOCK-ARRIVALS-CC0",
+ "source": "github bitcoin-data/block-arrival-times",
+ "license": "CC0-1.0",
+ "retrieved": "2026-09-07",
+ "records_raw": 2494978,
+ "blocks": 545791,
+ "height_range": [
+  369715,
+  927904
+ ],
+ "sources": 19,
+ "validation": [
+  "hash mismatches vs verified headers: 246"
+ ],
+ "limitations": [
+  "coverage uneven across heights/sources",
+  "arrival = first-connected at that node, node-specific latency",
+  "stratum files: pool job-issuance times, source semantics per repo docs"
+ ],
+ "authority": "MEDIUM-HIGH (multi-source, CI QA'd)",
+ "sha256": "b8a2a510d607744a9ead3fe91b9c1351f2aad3143d1c5b94fe81525c172e3e6b"
+}

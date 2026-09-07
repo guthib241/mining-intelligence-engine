@@ -1,0 +1,19 @@
+{
+ "P1": {
+  "name": "epoch-walk-forward-2020plus",
+  "data": "BTCHDR-2025-12-14",
+  "train": "rolling 60 epochs, min 20",
+  "warmup": "epochs 330-349",
+  "test": "epochs 350-458 (n=109)",
+  "metric": "MAE of log(D_next/D_cur) in %",
+  "horizons_k": [
+   0,
+   100,
+   300,
+   500,
+   1000,
+   1500
+  ],
+  "tuning_allowed_on": "epochs <330 only"
+ }
+}

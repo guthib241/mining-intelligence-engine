@@ -1,0 +1,53 @@
+[
+ {
+  "dataset_id": "BTCHDR-2025-12-14",
+  "source": "github nip-333/btc-archive + nip-333/btc-current",
+  "license": "unstated in repo (raw public chain data)",
+  "retrieved": "2026-09-07",
+  "first_ts": "2009-01-03 18:15:05",
+  "last_ts": "2025-12-14 22:38:47",
+  "first_height": 0,
+  "last_height": 927904,
+  "records": 927905,
+  "missing": 0,
+  "duplicates": 0,
+  "validation": [
+   "genesis hash match",
+   "0 broken prev-hash links",
+   "0 PoW failures",
+   "difficulty formula reproduced <2e-5 rel err 2016+"
+  ],
+  "limitations": [
+   "ends 2025-12-14 (repo not refreshed)",
+   "timestamps are miner-set, not arrival times"
+  ],
+  "authority": "HIGH (self-verified against consensus rules)",
+  "revision": "append-only",
+  "sha256_archive": "529dca648866cec8da87f6cf93d527733b6adc933dfd957ac7cd03d97843b556",
+  "sha256_current": "8bca2df7c671412d28290791d0dafda538d8352eb8d1755d665c00e1194befd5"
+ },
+ {
+  "dataset_id": "BTCUSD-BINANCE-DAILY",
+  "source": "github jptrustlearning/btc btc_prices.csv (Binance BTC/USDT via GitHub Actions)",
+  "license": "unstated",
+  "retrieved": "2026-09-07",
+  "first_ts": "2017-08-17",
+  "last_ts": "2026-09-05",
+  "records": 3307,
+  "missing": 0,
+  "duplicates": 0,
+  "validation": [
+   "4 reference closes within expected ranges",
+   "no non-positive prices",
+   "max |daily log ret| .465 (2020-03-12, plausible)"
+  ],
+  "limitations": [
+   "third-party aggregation",
+   "USDT not USD",
+   "no pre-2017-08 coverage"
+  ],
+  "authority": "MEDIUM",
+  "revision": "auto-updated daily; history could be silently revised",
+  "sha256": "3acbbc816b50b0642e8db5636fdf540234ea8bb64c828137d0c1a7f6a1722599"
+ }
+]

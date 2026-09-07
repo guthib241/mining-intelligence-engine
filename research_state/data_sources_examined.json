@@ -1,0 +1,62 @@
+[
+ {
+  "family": "mempool_fee",
+  "query": "bitcoin mempool historical data",
+  "repo": "douglaz/bitcoin-augur-rust",
+  "stars": 1,
+  "size_kb": 364,
+  "pushed": "2026-09-07",
+  "desc": "A Rust port of the Bitcoin Augur fee estimation library, providing accurate fee estimates by analyzi",
+  "license": "Apache-2.0"
+ },
+ {
+  "family": "mempool_fee",
+  "query": "bitcoin mempool historical data",
+  "repo": "Erojo/mempool",
+  "stars": 0,
+  "size_kb": 9,
+  "pushed": "2021-04-07",
+  "desc": "Recommended Mempool fees Historical Data",
+  "license": null
+ },
+ {
+  "family": "hashprice_econ",
+  "query": "bitcoin mining profitability dataset",
+  "repo": "ananya2001gupta/Bitcoin-Price-Prediction-using-AI-ML.",
+  "stars": 18,
+  "size_kb": 891,
+  "pushed": "2022-08-02",
+  "desc": "Identify the software project, create business case, arrive at a problem statement. REQUIREMENT: Win",
+  "license": null
+ },
+ {
+  "family": "hashprice_econ",
+  "query": "bitcoin mining energy dataset",
+  "repo": "keerthi2504/Energy-Consumption-and-Carbon-Footprint-Analytics-of-Bitcoin-Mining-Using-CBECI-Dataset",
+  "stars": 0,
+  "size_kb": 457,
+  "pushed": "2025-12-05",
+  "desc": "This study analyses Bitcoin\u2019s energy consumption patterns and carbon footprint using the Cambridge B",
+  "license": null
+ },
+ {
+  "family": "blockdata",
+  "query": "bitcoin blocks csv dataset",
+  "repo": "bitcoin-data/block-arrival-times",
+  "stars": 15,
+  "size_kb": 68037,
+  "pushed": "2026-03-28",
+  "desc": "A public Bitcoin Block Arrival Time Dataset licensed under CC0.",
+  "license": "CC0-1.0"
+ },
+ {
+  "family": "blockdata",
+  "query": "bitcoin blocks csv dataset",
+  "repo": "jesusgraterol/bitcoin-blockchain-dataset-builder",
+  "stars": 3,
+  "size_kb": 20,
+  "pushed": "2023-11-29",
+  "desc": "The dataset builder script extracts all the relevant block information from the Bitcoin Blockchain t",
+  "license": null
+ }
+]

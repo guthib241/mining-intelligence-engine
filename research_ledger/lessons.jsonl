@@ -1,2 +1,5 @@
 {"lesson": "Raw pace extrapolation of difficulty is noisier than 'no change' for first ~600 blocks of an epoch; shrinkage required"}
 {"lesson": "Epoch log-adjustments under constant hashrate are MA(1) in Poisson noise, autocorr -0.5. Observed 2023+ r=-.27 is this mechanism, not miner behaviour. Naive-forecast error sd from Poisson alone is 3.15%, not 2.2%."}
+{"lesson": "Binary run/curtail decisions are insensitive to difficulty-forecast accuracy (flips only at ~zero margin). Forecast value is linear-exposure value (hedging/forward sales), ~$2-4k per EH/s per epoch at k=500 vs naive, ~0.8pp vs standard estimator."}
+{"lesson": "Epoch-adjustment target caps n at ~109 test points; power floor R2~0.2+. Weak-signal hypotheses must move to a daily hashrate-proxy target (n~2000) or block-level targets."}
+{"lesson": "Header timestamps lag true arrival by median 18.5s (template time); arrival data removes this but does not change memorylessness conclusions."}

@@ -1,0 +1,52 @@
+[
+ {
+  "tool": "github/github-mcp-server",
+  "decision": "NOT ADOPTED",
+  "reason": "unauthenticated REST + git clone already sufficient; MCP server needs a GitHub token (would require human secret). Rate limit (10 search/min) handled by pacing."
+ },
+ {
+  "tool": "mlflow",
+  "decision": "NOT ADOPTED (yet)",
+  "reason": "experiment count ~15, jsonl ledger + git commits give full provenance; MLflow adds a server/DB and 100+ deps for no current benefit. Revisit if experiment volume >100 or multi-agent."
+ },
+ {
+  "tool": "optuna",
+  "decision": "DELIBERATELY NOT ADOPTED",
+  "reason": "n=109 test epochs; hyperparameter search would be a multiple-testing engine. Champion has zero searched hyperparameters by design. Revisit only with the daily-target (n~2000) track and a locked holdout."
+ },
+ {
+  "tool": "pytorch_geometric",
+  "decision": "NOT RELEVANT",
+  "reason": "no graph-structured data in current tracks; block/pool graph would need tx-level data."
+ },
+ {
+  "tool": "TransformerLens",
+  "decision": "NOT RELEVANT",
+  "reason": "no neural models justified (synthetic bench shows linear walk-forward already power-limited at this n; a transformer would be pure overfitting)."
+ },
+ {
+  "tool": "openai/evals",
+  "decision": "NOT ADOPTED",
+  "reason": "LLM-eval framework; our benchmark is a synthetic signal-recovery suite (experiments/bench_synthetic.py) which fits the need directly."
+ },
+ {
+  "tool": "modelcontextprotocol/servers",
+  "decision": "NOT ADOPTED",
+  "reason": "no server needed for current data paths."
+ },
+ {
+  "tool": "bitcoin-data/block-arrival-times",
+  "decision": "ADOPTED",
+  "reason": "CC0, CI-QA'd, multi-source, validated against our headers (246 mismatches = orphan candidates, not errors)."
+ },
+ {
+  "tool": "bboerst/stratum-work",
+  "decision": "EVALUATED - no bundled dataset",
+  "reason": "repo is the collector/backend (2.4MB code); per-pool job data lives in a live DB, not in-repo. Only the aggregated export in block-arrival-times is available offline."
+ },
+ {
+  "tool": "jptrustlearning/btc",
+  "decision": "ADOPTED (MEDIUM authority)",
+  "reason": "daily BTC/USDT; validated on reference dates; third-party."
+ }
+]

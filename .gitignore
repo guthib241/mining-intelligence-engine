@@ -3,3 +3,4 @@ btc-current/
 headers.pkl
 __pycache__/
 btc/
+headers_compact.npz
