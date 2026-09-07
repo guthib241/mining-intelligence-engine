@@ -19,11 +19,24 @@
    "Kalman(EXP4)",
    "+price(EXP7)",
    "win300/win150/ewma(EXP8)",
-   "CUSUM switch(EXP9)"
+   "CUSUM switch(EXP9)",
+   "arrival-pace(EXP14)"
   ],
   "forecast_value": "~$3.7k/EH/s/epoch vs naive at k=500, P=90k",
   "decision_value": "\u22480 for binary run/curtail",
   "realized_value": "none",
   "level": "L4 + calibrated intervals"
+ },
+ "orphan_risk_signal": {
+  "model_id": "PROP-ORPHAN-v0",
+  "feature": "leakage-safe calibrated spread of block h-1 (reliable observers, offset-corrected, arrivals before first arrival of h) > 3s",
+  "level": "REPLICATED (temporal holdout 2024-25: OR 15.3, AUC .775 [.678,.856])",
+  "baseline": "base rate 0.2-0.4/1000",
+  "economic": "untested",
+  "not_yet": [
+   "independent implementation",
+   "robustness to spread definition",
+   "economic value"
+  ]
  }
 }

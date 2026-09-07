@@ -1,0 +1,57 @@
+[
+ {
+  "hypothesis": "H009/H012 fee-conditional block economics",
+  "variable": "per-block total fees (BTC) + mempool size",
+  "min_res": "block",
+  "min_history": "2 years",
+  "ideal": "per-block since 2017",
+  "proxy": "none from headers; coinbase output value would give fees (needs tx data)",
+  "public_source": "blockchain explorers (API blocked), Kaggle/BigQuery (network-blocked), GitHub: none found (13 queries)",
+  "reconstruction": "impossible from headers",
+  "blocker": "tx-level data outside sandbox allowlist"
+ },
+ {
+  "hypothesis": "H006 difficulty-forecast tradeability",
+  "variable": "hashprice forward / difficulty futures quotes",
+  "min_res": "daily",
+  "min_history": "1 year",
+  "ideal": "intraday quotes 2022+",
+  "proxy": "none",
+  "public_source": "Luxor/ Bitnomial (API/site blocked); GitHub none",
+  "reconstruction": "cannot reconstruct quotes",
+  "blocker": "market data outside allowlist"
+ },
+ {
+  "hypothesis": "pool-level propagation/stale risk (EXP18 mechanism)",
+  "variable": "coinbase pool tag per block",
+  "min_res": "block",
+  "min_history": "2021+",
+  "ideal": "full",
+  "proxy": "nonce/version fingerprints (weak, aggregate only)",
+  "public_source": "mining-pools identification repos (0xb10c/known-mining-pools = tag patterns, still needs coinbase tx)",
+  "reconstruction": "needs coinbase tx of each block (not in headers)",
+  "blocker": "tx data"
+ },
+ {
+  "hypothesis": "hashrate supply-side drivers",
+  "variable": "ASIC shipments, energy prices, curtailment events",
+  "min_res": "weekly",
+  "min_history": "2020+",
+  "ideal": "daily",
+  "proxy": "none found; nonce fingerprint is coincident",
+  "public_source": "ERCOT public reports (site blocked), vendor filings (blocked)",
+  "reconstruction": "no",
+  "blocker": "external sites outside allowlist"
+ },
+ {
+  "hypothesis": "stale-share modelling",
+  "variable": "per-pool share/stale logs",
+  "min_res": "per-share or per-minute",
+  "min_history": "months",
+  "ideal": "per-share",
+  "proxy": "stratum job timing (have: fastest-pool aggregate only)",
+  "public_source": "none public",
+  "reconstruction": "no",
+  "blocker": "PRIVATE operator data - genuine human-only dependency (not requested this iteration)"
+ }
+]

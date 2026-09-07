@@ -9,3 +9,6 @@
 {"id": "H013", "hypothesis": "early-warning / within-epoch detection of hashrate transition", "status": "REJECTED (EXP8/9)"}
 {"id": "H014", "status": "TARGET ESTABLISHED; price sub-hypothesis REJECTED"}
 {"id": "H015", "status": "REJECTED (artifact)"}
+{"id": "H016", "status": "REJECTED"}
+{"id": "H017", "status": "DESCRIPTIVE"}
+{"id": "H018", "hypothesis": "prev-block propagation -> orphan risk", "status": "REPLICATED"}

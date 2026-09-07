@@ -1,0 +1,65 @@
+[
+ {
+  "repo": "github/github-mcp-server",
+  "default_branch": "main",
+  "license": "MIT",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-09-07"
+ },
+ {
+  "repo": "modelcontextprotocol/servers",
+  "default_branch": "main",
+  "license": "MIT",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-09-03"
+ },
+ {
+  "repo": "mlflow/mlflow",
+  "default_branch": "master",
+  "license": "Apache-2.0",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-09-07"
+ },
+ {
+  "repo": "optuna/optuna",
+  "default_branch": "master",
+  "license": "MIT",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-09-07"
+ },
+ {
+  "repo": "pyg-team/pytorch_geometric",
+  "default_branch": "master",
+  "license": "Copyright (c) 2023 PyG Team <team@pyg.org>",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-09-01"
+ },
+ {
+  "repo": "openai/evals",
+  "default_branch": "main",
+  "license": "MIT",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-04-14"
+ },
+ {
+  "repo": "TransformerLensOrg/TransformerLens",
+  "default_branch": "main",
+  "license": "MIT",
+  "tests_dir": "rate-limited",
+  "test_dir": "rate-limited",
+  "ci": "rate-limited",
+  "last_commit": "2026-09-01"
+ }
+]
