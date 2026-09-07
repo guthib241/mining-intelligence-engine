@@ -2,3 +2,4 @@ btc-archive/
 btc-current/
 headers.pkl
 __pycache__/
+btc/

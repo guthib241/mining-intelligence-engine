@@ -47,7 +47,7 @@
  {
   "id": "H005",
   "hypothesis": "External drivers (BTC price, hashprice, curtailment) predict epoch hashrate change",
-  "status": "BLOCKED",
+  "status": "REJECTED",
   "reason": "needs price/curtailment data not reachable from sandbox",
   "info_gain": 4,
   "impact": 4,
@@ -90,5 +90,17 @@
   "cost": 1,
   "risk": 3,
   "value": 0.27
+ },
+ {
+  "id": "H012",
+  "hypothesis": "nonlinear: hashprice below marginal cost -> next-epoch hashrate drop",
+  "status": "BLOCKED",
+  "reason": "needs fee data + fleet cost curve",
+  "info_gain": 3,
+  "impact": 3,
+  "p_useful": 0.4,
+  "cost": 2,
+  "risk": 2,
+  "value": 0.9
  }
 ]

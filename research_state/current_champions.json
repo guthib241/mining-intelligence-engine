@@ -1,8 +1,24 @@
 {
  "difficulty_forecast": {
-  "model": "walk-forward OLS blend of pace-extrapolation + prev-epoch adj, 60-epoch window",
-  "MAE_k500_2020plus": 2.95,
-  "baseline_naive": 3.61,
-  "level": "L4"
+  "model": "walk-forward OLS blend of pace-extrapolation + prev-epoch adj, 60-epoch window (lib/difficulty.py)",
+  "MAE_pct": {
+   "k0": 3.27,
+   "k300": 3.23,
+   "k500": 2.95,
+   "k1000": 2.06,
+   "k1500": 1.1
+  },
+  "naive": 3.61,
+  "level": "L4",
+  "challengers_rejected": [
+   "EXP4 Kalman",
+   "EXP7 +price"
+  ],
+  "economics": "unquantified; needs hashprice/derivative data"
+ },
+ "fleet_composition_index": {
+  "model": "per-epoch P(nonce bit7=1), P(bit31=1), P(low byte>=0xE0)",
+  "level": "L1 observation, known method",
+  "predictive_use": "none found (EXP6)"
  }
 }

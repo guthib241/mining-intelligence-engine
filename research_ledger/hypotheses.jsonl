@@ -4,3 +4,4 @@
 {"id": "H010", "hypothesis": "Kalman filter on log-hashrate", "status": "REJECTED"}
 {"id": "H008", "hypothesis": "2023+ adjustment mean-reversion is behavioural", "status": "REJECTED", "reason": "explained by MA(1) Poisson mechanism"}
 {"id": "H004", "status": "REJECTED", "note": "fingerprint is coincident/lagging, not leading"}
+{"id": "H005", "status": "REJECTED", "note": "simple price momentum; nonlinear/regime variants untested"}
