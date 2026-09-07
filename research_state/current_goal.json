@@ -1,0 +1,5 @@
+{
+ "goal": "Find measurable, reproducible mining advantage from public Bitcoin data; first target: difficulty/hashrate forecasting and on-chain hardware fingerprints",
+ "chain": "BTC",
+ "data": "headers genesis..927904 (2025-12-14), nip-333 archive, verified"
+}

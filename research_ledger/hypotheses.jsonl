@@ -1,0 +1,3 @@
+{"id": "H001", "hypothesis": "hash outcome predictable from header fields", "status": "REJECTED"}
+{"id": "H002", "hypothesis": "block intervals non-memoryless", "status": "REJECTED"}
+{"id": "H003", "hypothesis": "epoch adjustment momentum", "status": "REJECTED"}

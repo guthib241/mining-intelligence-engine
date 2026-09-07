@@ -1,0 +1,8 @@
+{
+ "difficulty_forecast": {
+  "model": "walk-forward OLS blend of pace-extrapolation + prev-epoch adj, 60-epoch window",
+  "MAE_k500_2020plus": 2.95,
+  "baseline_naive": 3.61,
+  "level": "L4"
+ }
+}

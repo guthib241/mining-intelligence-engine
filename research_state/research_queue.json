@@ -1,0 +1,83 @@
+[
+ {
+  "id": "N001",
+  "hypothesis": "NULL TEST: EXP3 pipeline shows no advantage over naive on synthetic constant-hashrate data and on shuffled targets",
+  "status": "UNTESTED",
+  "info_gain": 3,
+  "impact": 0,
+  "p_useful": 1.0,
+  "cost": 1,
+  "risk": 0,
+  "value": 99
+ },
+ {
+  "id": "H004",
+  "hypothesis": "Nonce-space fingerprint gives an on-chain hardware-mix time series that leads hashrate change (improves EXP3 residual)",
+  "status": "UNTESTED",
+  "info_gain": 4,
+  "impact": 3,
+  "p_useful": 0.35,
+  "cost": 1,
+  "risk": 2,
+  "value": 2.1
+ },
+ {
+  "id": "H007",
+  "hypothesis": "Version-bit (overt ASICBoost) adoption rate is a second hardware fingerprint",
+  "status": "UNTESTED",
+  "info_gain": 2,
+  "impact": 2,
+  "p_useful": 0.5,
+  "cost": 1,
+  "risk": 1,
+  "value": 2.0
+ },
+ {
+  "id": "H009",
+  "hypothesis": "Fee/mempool dynamics conditional on interval length",
+  "status": "BLOCKED",
+  "reason": "needs tx-level data",
+  "info_gain": 4,
+  "impact": 4,
+  "p_useful": 0.6,
+  "cost": 3,
+  "risk": 2,
+  "value": 1.6
+ },
+ {
+  "id": "H005",
+  "hypothesis": "External drivers (BTC price, hashprice, curtailment) predict epoch hashrate change",
+  "status": "BLOCKED",
+  "reason": "needs price/curtailment data not reachable from sandbox",
+  "info_gain": 4,
+  "impact": 4,
+  "p_useful": 0.5,
+  "cost": 3,
+  "risk": 2,
+  "value": 1.33
+ },
+ {
+  "id": "H006",
+  "hypothesis": "Difficulty-derivative markets price off raw extrapolation; shrinkage blend is tradeable early-epoch",
+  "status": "BLOCKED",
+  "reason": "needs market data",
+  "info_gain": 3,
+  "impact": 5,
+  "p_useful": 0.3,
+  "cost": 3,
+  "risk": 3,
+  "value": 0.5
+ },
+ {
+  "id": "H008",
+  "hypothesis": "2023+ mean-reversion in epoch adjustments (r=-.27) is real",
+  "status": "UNTESTED",
+  "note": "n=59, single test; need mechanism + holdout",
+  "info_gain": 2,
+  "impact": 2,
+  "p_useful": 0.25,
+  "cost": 1,
+  "risk": 3,
+  "value": 0.33
+ }
+]
