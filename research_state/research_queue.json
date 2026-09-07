@@ -13,7 +13,7 @@
  {
   "id": "H004",
   "hypothesis": "Nonce-space fingerprint gives an on-chain hardware-mix time series that leads hashrate change (improves EXP3 residual)",
-  "status": "UNTESTED",
+  "status": "REJECTED",
   "info_gain": 4,
   "impact": 3,
   "p_useful": 0.35,
@@ -79,5 +79,16 @@
   "cost": 1,
   "risk": 3,
   "value": 0.33
+ },
+ {
+  "id": "H011",
+  "hypothesis": "daily-resolution fingerprint ramp leads daily hashrate",
+  "status": "UNTESTED",
+  "info_gain": 2,
+  "impact": 2,
+  "p_useful": 0.2,
+  "cost": 1,
+  "risk": 3,
+  "value": 0.27
  }
 ]
