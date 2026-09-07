@@ -4,3 +4,5 @@ headers.pkl
 __pycache__/
 btc/
 headers_compact.npz
+block-arrival-times/
+arrivals.pkl
