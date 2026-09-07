@@ -1,0 +1,144 @@
+{
+ "git_commit": "6126c4e",
+ "git_dirty": true,
+ "champion": {
+  "model_id": "BLEND-v1",
+  "code": "lib/forecast.py walk() with ['extrap','mom']",
+  "data_version": "BTCHDR-2025-12-14",
+  "feature_version": "fv1 (from-start pace extrap, prev-epoch adj)",
+  "protocol": "P1",
+  "commit": "see git HEAD",
+  "scores_MAE_pct": {
+   "k0": 3.27,
+   "k300": 3.23,
+   "k500": 2.95,
+   "k1000": 2.06,
+   "k1500": 1.1
+  },
+  "uncertainty": "conformal quantiles from 60-epoch residual window; cov50 .44-.60, cov90 .88-.93",
+  "regimes": "2023/24/25 each ~25% better than naive; 2021-22 no gain",
+  "challengers_rejected": [
+   "Kalman(EXP4)",
+   "+price(EXP7)",
+   "win300/win150/ewma(EXP8)",
+   "CUSUM switch(EXP9)",
+   "arrival-pace(EXP14)"
+  ],
+  "forecast_value": "~$3.7k/EH/s/epoch vs naive at k=500, P=90k",
+  "decision_value": "\u22480 for binary run/curtail",
+  "realized_value": "none",
+  "level": "L4 + calibrated intervals"
+ },
+ "candidates": [],
+ "hypotheses": {
+  "active": [
+   "H014",
+   "H023"
+  ],
+  "rejected": [
+   "H001",
+   "H002",
+   "H003",
+   "H010",
+   "H008",
+   "H004",
+   "H005",
+   "H013",
+   "H015",
+   "H016",
+   "H018",
+   "H021",
+   "H018e",
+   "H020"
+  ],
+  "blocked": [
+   "F1",
+   "H009",
+   "H018c",
+   "H006"
+  ]
+ },
+ "experiments": {
+  "completed": [
+   "EXP1",
+   "EXP2",
+   "EXP3",
+   "N001",
+   "EXP4",
+   "EXP5",
+   "EXP6",
+   "EXP7",
+   "EXP10",
+   "EXP8",
+   "EXP9",
+   "EXP-ARR",
+   "EXP11",
+   "BENCH-SYN-001",
+   "EXP12",
+   "EXP13",
+   "EXP14a",
+   "EXP14b",
+   "EXP15",
+   "EXP16",
+   "EXP16-18",
+   "EXP20",
+   "EXP19",
+   "EXP21",
+   "EXP22",
+   "EXP23",
+   "EXP24",
+   "EXP25"
+  ],
+  "failed": [],
+  "count": 28
+ },
+ "queue_top": [
+  {
+   "id": "F1",
+   "priority": 0.5,
+   "status": "BLOCKED (data)"
+  },
+  {
+   "id": "H009",
+   "priority": 0.5,
+   "status": "BLOCKED"
+  },
+  {
+   "id": "H018c",
+   "priority": 0.5,
+   "status": "BLOCKED"
+  },
+  {
+   "id": "F4",
+   "priority": 0.5,
+   "status": "UNTESTED"
+  },
+  {
+   "id": "F3",
+   "priority": 0.5,
+   "status": "UNTESTED"
+  },
+  {
+   "id": "F5",
+   "priority": 0.5,
+   "status": "UNTESTED (data acquisition first)"
+  }
+ ],
+ "datasets": {
+  "dataset_manifest.json": [
+   "BTCHDR-2025-12-14",
+   "BTCUSD-BINANCE-DAILY"
+  ],
+  "manifest_arrivals.json": "BLOCK-ARRIVALS-CC0",
+  "manifest_fees.json": "MEMPOOL-FEES-3Y-S4"
+ },
+ "governor": {
+  "iteration": 1,
+  "used": 0,
+  "cap": 3,
+  "remaining": 3,
+  "ids": []
+ },
+ "latest_report": "ITERATION_006_FINAL.md",
+ "code_version": "mie 0.1.0"
+}

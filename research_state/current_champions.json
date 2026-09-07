@@ -1,7 +1,7 @@
 {
  "difficulty_forecast": {
   "model_id": "BLEND-v1",
-  "code": "lib/forecast.py walk() with ['extrap','mom']",
+  "code": "mie.models.OLSBlend(features=['extrap','mom']) via mie.forecasting.walk_forward under protocol P1 (mie.evaluation.protocols)",
   "data_version": "BTCHDR-2025-12-14",
   "feature_version": "fv1 (from-start pace extrap, prev-epoch adj)",
   "protocol": "P1",
@@ -25,7 +25,9 @@
   "forecast_value": "~$3.7k/EH/s/epoch vs naive at k=500, P=90k",
   "decision_value": "\u22480 for binary run/curtail",
   "realized_value": "none",
-  "level": "L4 + calibrated intervals"
+  "level": "L4 + calibrated intervals",
+  "reproduction": "REPRO-BLEND-v1 (reports/runs) + tests/test_champion_regression.py",
+  "promotion_rule": "mie.evaluation.gates.promotion_gates; replacement is manual after an independent rerun"
  },
  "note_iter004": "orphan-risk candidate retracted after independent-implementation gate"
 }

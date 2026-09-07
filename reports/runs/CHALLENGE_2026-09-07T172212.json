@@ -1,0 +1,24 @@
+{
+ "experiment_id": "CHALLENGE",
+ "hypothesis": "Candidate model vs BLEND-v1 under P1 with strict comparison + gates",
+ "datasets": [
+  "BTCHDR-2025-12-14"
+ ],
+ "git_commit": "6126c4e",
+ "git_dirty": true,
+ "config": {
+  "candidate": "ols",
+  "features": [
+   "does_not_exist"
+  ],
+  "k": 500
+ },
+ "seed": 0,
+ "started": "2026-09-07T17:22:12.370839+00:00Z",
+ "primary": true,
+ "status": "FAILED",
+ "failure_class": "CODE_FAILURE",
+ "error": "['does_not_exist']",
+ "traceback": "Traceback (most recent call last):\n  File \"/home/claude/research/mie/experiments/runner.py\", line 31, in run_experiment\n    result = spec[\"fn\"](cfg)\n             ^^^^^^^^^^^^^^^\n  File \"/home/claude/research/mie/experiments/library.py\", line 42, in challenge\n    p = walk_forward(fr, models)\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/claude/research/mie/forecasting/pipeline.py\", line 21, in walk_forward\n    m.fit(tr)\n  File \"/home/claude/research/mie/models/difficulty.py\", line 23, in fit\n    tr = train.dropna(subset=self.features + [\"actual\"]) if self.features else train\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pandas/core/frame.py\", line 7789, in dropna\n    raise KeyError(np.array(subset)[check].tolist())\nKeyError: ['does_not_exist']\n",
+ "verdict": "NOT A SCIENTIFIC RESULT (run failed)"
+}
