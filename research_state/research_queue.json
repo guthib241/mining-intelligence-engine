@@ -2,8 +2,18 @@
  {
   "id": "F1",
   "hypothesis": "cross-chain SHA-256 hashrate allocation predictable from profitability ratio + DAA state",
-  "status": "UNTESTED (data acquisition first)",
+  "status": "BLOCKED (data)",
   "value": 1.0
+ },
+ {
+  "id": "H009",
+  "status": "BLOCKED",
+  "value": 0.8
+ },
+ {
+  "id": "H018c",
+  "status": "BLOCKED",
+  "value": 0.6
  },
  {
   "id": "F4",
@@ -18,24 +28,20 @@
   "value": 0.4
  },
  {
+  "id": "F5",
+  "hypothesis": "fee-regime forecasting from mempool state",
+  "status": "UNTESTED (data acquisition first)",
+  "value": 0.4
+ },
+ {
   "id": "F2",
   "hypothesis": "halving prior",
   "status": "DORMANT until 2028",
   "value": 0.3
  },
  {
-  "id": "H009",
-  "status": "BLOCKED",
-  "value": 0.8
- },
- {
   "id": "H006",
   "status": "BLOCKED",
   "value": 0.25
- },
- {
-  "id": "H018c",
-  "status": "BLOCKED",
-  "value": 0.6
  }
 ]

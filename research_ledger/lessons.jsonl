@@ -4,3 +4,5 @@
 {"lesson": "Epoch-adjustment target caps n at ~109 test points; power floor R2~0.2+. Weak-signal hypotheses must move to a daily hashrate-proxy target (n~2000) or block-level targets."}
 {"lesson": "Header timestamps lag true arrival by median 18.5s (template time); arrival data removes this but does not change memorylessness conclusions."}
 {"lesson": "Continuous covariates found nothing in the residual; the only structure was a scheduled event. Event-conditioning is the representational gap, but with 3-4 events it cannot be validated at protocol standard."}
+{"lesson": "web_fetch reaches mempool.space and api.blockchain.info (mempool charts only; mining charts 404) when the sandbox cannot. Data must be transcribed; integrity-check via an independent overlapping column (price)."}
+{"lesson": "Forecast value is bounded by the variance share of the target: difficulty is 8-26% of 14d revenue variance. A program optimising difficulty forecasts cannot exceed ~$32k/EH/epoch VOI even with perfect information; price hedging, not prediction, addresses the dominant component."}

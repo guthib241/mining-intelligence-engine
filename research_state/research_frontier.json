@@ -6,7 +6,8 @@
   "within-epoch transition detection (windows/EWMA/CUSUM/Kalman)",
   "observer-spread propagation trends",
   "orphan risk from public arrivals (two disjoint feature sources null)",
-  "model ensembling (error corr 0.99)"
+  "model ensembling (error corr 0.99)",
+  "difficulty forecasting as primary value target (EXP25: 8-26% of revenue variance)"
  ],
  "blocked_branches": [
   "fee/mempool economics (tx data)",
@@ -22,7 +23,7 @@
    "data_need": "BCH block headers (public; search GitHub header archives / electrum header fetchers) + BCH/USD price",
    "first_deliverable": "research_state/bch_header_source.json + verified header parse; then EXP: predict BCH next-block-hour hashrate share from price ratio & DAA state, baseline persistence",
    "value_est": "info 4 x econ 4 x p .5 / (compute 1 x data 2 x cplx 2 x fdr 2) = 1.0",
-   "status": "TOP NEXT"
+   "status": "BLOCKED at data step (no public BCH header archive reachable; 2 GitHub queries 2026-09-07)"
   },
   {
    "id": "F2",
@@ -50,19 +51,32 @@
    "first_deliverable": "reports/voi_decision_map.json",
    "value_est": "0.5",
    "status": "UNTESTED"
+  },
+  {
+   "id": "F5",
+   "name": "Fee-regime (spike) forecasting from mempool state",
+   "why": "fees = 46% of revenue variance 2023-24, 1% in 2025; episodic; VOI $46k/EH/epoch if regimes were predictable",
+   "data_need": "mempool.space /api/v1/statistics/{1y,3y} (vsize by fee level) via web_fetch + transcription; or tx-level data",
+   "first_deliverable": "research_state/mempool_stats_source.json + event table of fee spikes with pre-onset mempool signatures",
+   "value_est": "info 4 x econ 4 x p .3 / (1 x 2 x 2 x 3) = 0.4 (event count is the risk)",
+   "status": "UNTESTED"
   }
  ],
  "new_problem_formulations": [
   "From 'predict BTC difficulty' to 'predict where SHA-256 hashrate goes next' (allocation across chains)",
   "From 'network orphan risk' to 'pool-specific job latency' (needs per-pool stream)",
-  "From continuous covariates to event-conditioned priors"
+  "From continuous covariates to event-conditioned priors",
+  "From 'forecast X better' to 'which revenue component carries variance, and is it a prediction problem or a hedging problem' (EXP25)"
  ],
  "new_math": [
   "M3 finder-lead mixture retained as an L0 measurement construct; M1,M2,M5 tested and deleted from the active queue (see math_candidates.md, EXP22)"
  ],
  "highest_value_next_experiments": [
-  "F1 data acquisition + first cross-chain experiment",
-  "F4 VOI map",
-  "F3 event timeline"
+  "F5 mempool-state fee-regime study (data acquisition first)",
+  "F4 VOI map across decisions with EXP25 variance shares",
+  "F3 pool-software event timeline"
+ ],
+ "new_data_sources": [
+  "web_fetch channel: mempool.space mining/fees endpoints (3y, 12h buckets); api.blockchain.info mempool charts (5w)"
  ]
 }

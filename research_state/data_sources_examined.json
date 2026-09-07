@@ -58,5 +58,26 @@
   "pushed": "2023-11-29",
   "desc": "The dataset builder script extracts all the relevant block information from the Bitcoin Blockchain t",
   "license": null
+ },
+ {
+  "family": "fees",
+  "source": "mempool.space /api/v1/mining/blocks/fees/3y",
+  "channel": "web_fetch",
+  "coverage": "2023-09..2026 (12h buckets)",
+  "license": "public API",
+  "retrieval": "ADOPTED (subsampled, transcribed)",
+  "authority": "MEDIUM"
+ },
+ {
+  "family": "fees",
+  "source": "api.blockchain.info/charts/transaction-fees (all variants)",
+  "channel": "web_fetch",
+  "retrieval": "REJECTED: 404 on all mining charts (2026); mempool charts still served",
+  "authority": "n/a"
+ },
+ {
+  "family": "bch_headers",
+  "source": "GitHub search 'bitcoin cash headers','bch block headers archive'",
+  "retrieval": "NOT FOUND"
  }
 ]

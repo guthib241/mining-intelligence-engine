@@ -1,0 +1,22 @@
+{
+ "dataset_id": "MEMPOOL-FEES-3Y-S4",
+ "source": "https://mempool.space/api/v1/mining/blocks/fees/3y via web_fetch (sandbox cannot reach)",
+ "license": "mempool.space public API (rate-limited, no stated license)",
+ "retrieved": "2026-09-07",
+ "native_resolution": "~12h buckets (avg fees/block, USD price)",
+ "stored_resolution": "every 4th bucket (~2 days), transcribed",
+ "records": 402,
+ "first": "2023-09-07 20:26:05",
+ "last": "2025-11-17 18:23:53",
+ "validation": [
+  "USD column vs Binance close: median ratio 0.9995, 1 rows >5% off",
+  "timestamps monotonic, median step 2.00 d"
+ ],
+ "limitations": [
+  "subsampled",
+  "transcribed by model (integrity check via price column)",
+  "payload truncated at 2025-11-17"
+ ],
+ "authority": "MEDIUM",
+ "sha256": "9ecd8f227af8cc07bd7afde257647bef52bbe3206ffd27ec8e407df1b7aa1f6e"
+}
