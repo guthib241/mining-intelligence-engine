@@ -1,8 +1,16 @@
+# Large regenerable data (see README data setup)
 btc-archive/
 btc-current/
-headers.pkl
-__pycache__/
-btc/
-headers_compact.npz
 block-arrival-times/
-arrivals.pkl
+btc/
+data/processed/
+data/raw/
+*.pkl
+*.npz
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+reports/cache/
