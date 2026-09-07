@@ -1,1 +1,2 @@
 {"lesson": "Raw pace extrapolation of difficulty is noisier than 'no change' for first ~600 blocks of an epoch; shrinkage required"}
+{"lesson": "Epoch log-adjustments under constant hashrate are MA(1) in Poisson noise, autocorr -0.5. Observed 2023+ r=-.27 is this mechanism, not miner behaviour. Naive-forecast error sd from Poisson alone is 3.15%, not 2.2%."}
