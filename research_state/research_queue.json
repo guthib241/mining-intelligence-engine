@@ -1,102 +1,41 @@
 [
  {
-  "id": "H018a",
-  "hypothesis": "Orphan-risk signal: independent implementation (different spread definition, different observer subset) + block-level logistic model with calibration curve",
-  "status": "REJECTED/SUPERSEDED",
-  "info_gain": 4,
-  "impact": 2,
-  "p_useful": 0.7,
-  "cost": 1,
-  "data_cost": 0,
-  "risk": 2,
-  "value": 2.8
+  "id": "F1",
+  "hypothesis": "cross-chain SHA-256 hashrate allocation predictable from profitability ratio + DAA state",
+  "status": "UNTESTED (data acquisition first)",
+  "value": 1.0
  },
  {
-  "id": "H020",
-  "hypothesis": "stratum job-timing (fastest pool) vs propagation: empty-block window as function of network state",
+  "id": "F4",
+  "hypothesis": "VOI map across mining decisions (parametric)",
   "status": "UNTESTED",
-  "info_gain": 2,
-  "impact": 2,
-  "p_useful": 0.4,
-  "cost": 1,
-  "data_cost": 0,
-  "risk": 1,
-  "value": 1.6
+  "value": 0.5
  },
  {
-  "id": "H018b",
-  "hypothesis": "Orphan-risk economic model: P(orphan) x block reward x hashrate share; value of acting (e.g. delaying template switch / choosing tip) parametric",
-  "status": "REJECTED/SUPERSEDED",
-  "info_gain": 3,
-  "impact": 2,
-  "p_useful": 0.5,
-  "cost": 1,
-  "data_cost": 0,
-  "risk": 2,
-  "value": 1.5
- },
- {
-  "id": "H009",
-  "hypothesis": "fee-conditional block economics",
-  "status": "BLOCKED",
-  "reason": "tx data",
-  "info_gain": 4,
-  "impact": 4,
-  "p_useful": 0.6,
-  "cost": 3,
-  "data_cost": 3,
-  "risk": 2,
-  "value": 0.8
- },
- {
-  "id": "H018c",
-  "hypothesis": "Mechanism: pool persistence explains signal (needs coinbase tags)",
-  "status": "REJECTED/SUPERSEDED",
-  "reason": "tx data",
-  "info_gain": 4,
-  "impact": 3,
-  "p_useful": 0.5,
-  "cost": 2,
-  "data_cost": 3,
-  "risk": 2,
-  "value": 0.6
- },
- {
-  "id": "H019",
-  "hypothesis": "Fixed-panel propagation metric (KIT 2019-2023) vs block interval / difficulty: does network propagation covary with anything predictable",
+  "id": "F3",
+  "hypothesis": "pool-software event timeline vs finder-lead fraction",
   "status": "UNTESTED",
-  "info_gain": 2,
-  "impact": 1,
-  "p_useful": 0.4,
-  "cost": 1,
-  "data_cost": 0,
-  "risk": 2,
   "value": 0.4
  },
  {
-  "id": "H006",
-  "hypothesis": "difficulty forecast tradeability",
+  "id": "F2",
+  "hypothesis": "halving prior",
+  "status": "DORMANT until 2028",
+  "value": 0.3
+ },
+ {
+  "id": "H009",
   "status": "BLOCKED",
-  "reason": "market data",
-  "info_gain": 3,
-  "impact": 5,
-  "p_useful": 0.3,
-  "cost": 3,
-  "data_cost": 3,
-  "risk": 3,
+  "value": 0.8
+ },
+ {
+  "id": "H006",
+  "status": "BLOCKED",
   "value": 0.25
  },
  {
-  "id": "H018d",
-  "hypothesis": "orphan risk with feature panel disjoint from label panel (KIT feature, dbg label 2021-23 already null -> needs new label source)",
+  "id": "H018c",
   "status": "BLOCKED",
-  "reason": "needs stale-block log from independent nodes",
-  "info_gain": 3,
-  "impact": 2,
-  "p_useful": 0.3,
-  "cost": 1,
-  "data_cost": 3,
-  "risk": 2,
-  "value": 0.22
+  "value": 0.6
  }
 ]

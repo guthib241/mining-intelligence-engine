@@ -1,0 +1,49 @@
+{
+ "iteration": 5,
+ "cap": 3,
+ "ranking_note": "Candidates scored (gain x econ x p_learn / (compute x data x complexity x FDR)). Rejected before running: any nonce/price/CUSUM/Kalman/arrival-timing/spread-formulation variant (no new information). H020 (stratum vs network state) folded into EXP24 as a component rather than a standalone.",
+ "experiments": [
+  {
+   "id": "EXP22",
+   "question": "Where does the champion's residual live?",
+   "hypothesis": "H021: champion residual has structure conditional on scheduled/observable events (halving distance), interval dispersion, prior-adjustment sign, price volatility, fleet-fingerprint change, timestamp-error level, season, or template-build gap",
+   "why_now": "mandatory residual-first search; the residual (sd 3.7pp at k=500) is the only unexplained variance left in the difficulty track",
+   "info_gain": 4,
+   "econ": 3,
+   "p_learn": 0.8,
+   "data": "headers, price, arrivals, stratum (all local)",
+   "method": "12 pre-registered residual covariates under P1 at k=0 and k=500; Spearman + block-bootstrap; Bonferroni 24 tests; any survivor -> EXP23 residual model under P1",
+   "baseline": "zero structure",
+   "success": "any covariate with |rho|>0.25 surviving Bonferroni and consistent sign across 2021-23 vs 2024-25",
+   "failure": "none survive -> residual declared unstructured w.r.t. available observables",
+   "compute": "<60s",
+   "deliverable": "reports/champion_residual_map.json"
+  },
+  {
+   "id": "EXP23",
+   "question": "ADAPTIVE: if EXP22 finds structure, does BASE+RESIDUAL beat BASE under P1? If not, cancel and preserve budget",
+   "hypothesis": "conditional",
+   "why_now": "only justified by EXP22",
+   "success": "paired MAE reduction >5% with CI excluding 0, no regime failure",
+   "failure": "no gain or in-sample only",
+   "compute": "<60s",
+   "deliverable": "result table in ITERATION_005_FINAL"
+  },
+  {
+   "id": "EXP24",
+   "question": "Does the stratum job-issuance stream provide a propagation measurement that is independent of the observer panel (finder head-start), and does that disjoint-source feature replicate the orphan-risk signal killed in EXP21?",
+   "hypothesis": "H022: first mining.notify time approximates block creation time (finder pool reacts at t~0); delay_net = first observer arrival - first job = network propagation lag; H018e: delay_net(h-1) predicts competing block at h with label from dbg nodes (disjoint from stratum source)",
+   "why_now": "new information source not yet modeled; only clean way to resurrect or bury the orphan question; 2024-06..2025-12 coverage",
+   "info_gain": 4,
+   "econ": 2,
+   "p_learn": 0.7,
+   "data": "stratum_work_empty/not_empty + arrivals + dbg labels (local)",
+   "method": "bimodality test of (first job - first arrival); construct delay_net; leakage-safe (job of h-1 before arrival of h); Fisher + AUC vs 29 competing events; null = permutation; also delay_net vs template-build gap (H020)",
+   "baseline": "base rate; EXP21 negative",
+   "success": "AUC CI excludes 0.5 on disjoint-source feature",
+   "failure": "AUC ~0.5 -> orphan-risk branch closed at L0",
+   "compute": "<60s",
+   "deliverable": "reports/hidden_signal_screen_005.json"
+  }
+ ]
+}

@@ -3,3 +3,4 @@
 {"lesson": "Binary run/curtail decisions are insensitive to difficulty-forecast accuracy (flips only at ~zero margin). Forecast value is linear-exposure value (hedging/forward sales), ~$2-4k per EH/s per epoch at k=500 vs naive, ~0.8pp vs standard estimator."}
 {"lesson": "Epoch-adjustment target caps n at ~109 test points; power floor R2~0.2+. Weak-signal hypotheses must move to a daily hashrate-proxy target (n~2000) or block-level targets."}
 {"lesson": "Header timestamps lag true arrival by median 18.5s (template time); arrival data removes this but does not change memorylessness conclusions."}
+{"lesson": "Continuous covariates found nothing in the residual; the only structure was a scheduled event. Event-conditioning is the representational gap, but with 3-4 events it cannot be validated at protocol standard."}

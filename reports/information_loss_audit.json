@@ -1,0 +1,41 @@
+{
+ "pipeline": "difficulty forecast (P1)",
+ "comparisons": [
+  {
+   "level": "RAW block intervals vs AGGREGATED epoch span",
+   "test": "EXP22 dispersion index (M2) vs residual, k=500",
+   "result": "rho=-0.108 p=0.26; consistent with Poisson sufficiency (span is sufficient for rate)",
+   "loss": "none detected"
+  },
+  {
+   "level": "RAW arrival timestamps vs header timestamps",
+   "test": "EXP14a H016, 5 horizons",
+   "result": "\u0394\u22640.001pp, CI straddles 0",
+   "loss": "none"
+  },
+  {
+   "level": "TRANSFORMED (log adjustment) vs raw ratio",
+   "test": "champion uses log; clip [0.25,4] never binds 2016+",
+   "loss": "none"
+  },
+  {
+   "level": "LATENT (Kalman state) vs regression",
+   "test": "EXP4",
+   "result": "no gain",
+   "loss": "none recovered"
+  },
+  {
+   "level": "EVENT representation (halving distance) vs continuous covariates",
+   "test": "EXP22/23",
+   "result": "only event representation surfaced structure (post-halving residual -1..-4.5pp, L2)",
+   "loss": "continuous representation misses scheduled-event effects"
+  },
+  {
+   "level": "GRAPH (observer-block, pool-block)",
+   "test": "not run",
+   "result": "pool identity unavailable; observer-block graph would re-derive EXP21 artifact",
+   "loss": "untested, low prior"
+  }
+ ],
+ "conclusion": "No predictive information is lost by aggregation in the difficulty pipeline; the one representational gap is event-conditioning, which is currently underpowered (3 events)."
+}

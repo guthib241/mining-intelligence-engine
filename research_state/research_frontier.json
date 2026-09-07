@@ -1,0 +1,68 @@
+{
+ "exhausted_branches": [
+  "header-only difficulty/hashrate forecasting (BLEND-v1 at Poisson-limited floor)",
+  "nonce/version fingerprints as predictors",
+  "price -> hashrate (epoch and daily)",
+  "within-epoch transition detection (windows/EWMA/CUSUM/Kalman)",
+  "observer-spread propagation trends",
+  "orphan risk from public arrivals (two disjoint feature sources null)",
+  "model ensembling (error corr 0.99)"
+ ],
+ "blocked_branches": [
+  "fee/mempool economics (tx data)",
+  "difficulty-derivative tradeability (market quotes)",
+  "pool-level propagation/stale (coinbase tags, per-pool stratum)",
+  "stale-share modelling (private operator logs)"
+ ],
+ "unexplored_branches": [
+  {
+   "id": "F1",
+   "name": "Cross-chain SHA-256 hashrate allocation (BTC vs BCH/BSV)",
+   "why": "switch-mining between SHA-256 chains responds to profitability ratio and to BCH's per-block DAA (ASERT) -> hashrate oscillation is a documented, mechanistic, exploitable dynamic; a real pool/chain-choice decision",
+   "data_need": "BCH block headers (public; search GitHub header archives / electrum header fetchers) + BCH/USD price",
+   "first_deliverable": "research_state/bch_header_source.json + verified header parse; then EXP: predict BCH next-block-hour hashrate share from price ratio & DAA state, baseline persistence",
+   "value_est": "info 4 x econ 4 x p .5 / (compute 1 x data 2 x cplx 2 x fdr 2) = 1.0",
+   "status": "TOP NEXT"
+  },
+  {
+   "id": "F2",
+   "name": "Scheduled-event priors (halving 2028) as a standing residual correction",
+   "why": "EXP23 L2 signal; deferred but scheduled value",
+   "data_need": "none",
+   "first_deliverable": "rule registered in lib/forecast.py behind a flag; no P1 promotion until 2028 evidence",
+   "value_est": "0.3",
+   "status": "REGISTERED, dormant"
+  },
+  {
+   "id": "F3",
+   "name": "Pool-behaviour transition detection from the stratum stream (finder-lead fraction 0.10 -> 0.5 in 2025)",
+   "why": "system-level information leakage: pool software/template behaviour changes are visible before any aggregate metric",
+   "data_need": "per-pool stratum stream (blocked) or GitHub release-note timeline of pool/stratum software (public artifacts)",
+   "first_deliverable": "research_state/pool_software_events.json (release dates from GitHub) cross-referenced to monthly finder-lead fraction",
+   "value_est": "0.4",
+   "status": "UNTESTED"
+  },
+  {
+   "id": "F4",
+   "name": "Value-of-information map across mining decisions",
+   "why": "forward-selling VOI is modest; curtailment/energy decisions likely dominate but need price distributions",
+   "data_need": "parametric energy-price scenarios (synthetic ok)",
+   "first_deliverable": "reports/voi_decision_map.json",
+   "value_est": "0.5",
+   "status": "UNTESTED"
+  }
+ ],
+ "new_problem_formulations": [
+  "From 'predict BTC difficulty' to 'predict where SHA-256 hashrate goes next' (allocation across chains)",
+  "From 'network orphan risk' to 'pool-specific job latency' (needs per-pool stream)",
+  "From continuous covariates to event-conditioned priors"
+ ],
+ "new_math": [
+  "M3 finder-lead mixture retained as an L0 measurement construct; M1,M2,M5 tested and deleted from the active queue (see math_candidates.md, EXP22)"
+ ],
+ "highest_value_next_experiments": [
+  "F1 data acquisition + first cross-chain experiment",
+  "F4 VOI map",
+  "F3 event timeline"
+ ]
+}
