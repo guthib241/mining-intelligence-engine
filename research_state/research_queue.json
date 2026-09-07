@@ -2,7 +2,7 @@
  {
   "id": "H018a",
   "hypothesis": "Orphan-risk signal: independent implementation (different spread definition, different observer subset) + block-level logistic model with calibration curve",
-  "status": "UNTESTED",
+  "status": "REJECTED/SUPERSEDED",
   "info_gain": 4,
   "impact": 2,
   "p_useful": 0.7,
@@ -26,7 +26,7 @@
  {
   "id": "H018b",
   "hypothesis": "Orphan-risk economic model: P(orphan) x block reward x hashrate share; value of acting (e.g. delaying template switch / choosing tip) parametric",
-  "status": "UNTESTED",
+  "status": "REJECTED/SUPERSEDED",
   "info_gain": 3,
   "impact": 2,
   "p_useful": 0.5,
@@ -51,7 +51,7 @@
  {
   "id": "H018c",
   "hypothesis": "Mechanism: pool persistence explains signal (needs coinbase tags)",
-  "status": "BLOCKED",
+  "status": "REJECTED/SUPERSEDED",
   "reason": "tx data",
   "info_gain": 4,
   "impact": 3,
@@ -85,5 +85,18 @@
   "data_cost": 3,
   "risk": 3,
   "value": 0.25
+ },
+ {
+  "id": "H018d",
+  "hypothesis": "orphan risk with feature panel disjoint from label panel (KIT feature, dbg label 2021-23 already null -> needs new label source)",
+  "status": "BLOCKED",
+  "reason": "needs stale-block log from independent nodes",
+  "info_gain": 3,
+  "impact": 2,
+  "p_useful": 0.3,
+  "cost": 1,
+  "data_cost": 3,
+  "risk": 2,
+  "value": 0.22
  }
 ]

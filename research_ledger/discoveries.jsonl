@@ -1,2 +1,3 @@
 {"id": "D001", "level": "L0", "obs": "nonce top-4-bit histogram strongly non-uniform in recent blocks (4972-7066 vs 6250), uniform in 2012", "hypotheses": ["H004"]}
 {"id": "D002", "level": "L4 (REPLICATED temporal holdout)", "observation": "slow propagation of block h-1 (calibrated multi-observer spread >2-3s, measured before block h) precedes a 7-15x elevated competing-block rate at h", "caveats": ["absolute rate tiny (0.2 -> 3 per 1000)", "mechanism hypothesised not proven", "single dataset/implementation", "no economic test"]}
+{"id": "D002", "status": "RETRACTED", "reason": "EXP21: fails disjoint-panel and alternative-feature replication; explained by observer visibility of races"}

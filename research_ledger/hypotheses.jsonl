@@ -12,3 +12,4 @@
 {"id": "H016", "status": "REJECTED"}
 {"id": "H017", "status": "DESCRIPTIVE"}
 {"id": "H018", "hypothesis": "prev-block propagation -> orphan risk", "status": "REPLICATED"}
+{"id": "H018", "status": "REJECTED (artifact)"}

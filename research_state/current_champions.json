@@ -27,16 +27,5 @@
   "realized_value": "none",
   "level": "L4 + calibrated intervals"
  },
- "orphan_risk_signal": {
-  "model_id": "PROP-ORPHAN-v0",
-  "feature": "leakage-safe calibrated spread of block h-1 (reliable observers, offset-corrected, arrivals before first arrival of h) > 3s",
-  "level": "REPLICATED (temporal holdout 2024-25: OR 15.3, AUC .775 [.678,.856])",
-  "baseline": "base rate 0.2-0.4/1000",
-  "economic": "untested",
-  "not_yet": [
-   "independent implementation",
-   "robustness to spread definition",
-   "economic value"
-  ]
- }
+ "note_iter004": "orphan-risk candidate retracted after independent-implementation gate"
 }
