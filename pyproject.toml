@@ -18,6 +18,6 @@ addopts = "-q"
 markers = ["slow: needs full datasets"]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.12"
 ignore_missing_imports = true
 check_untyped_defs = false
