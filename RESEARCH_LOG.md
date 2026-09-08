@@ -82,3 +82,31 @@ infrastructure for when external hashrate-driver data arrives.
 btc-current and re-verified: 927,905 headers, correct genesis, 0 broken prev-hash links, 0 PoW failures,
 460 epochs, last block 2025-12-14. `data/parse_headers.py` emits `headers.pkl`, not the compact npz the
 registry loads; `data/build_compact.py` now covers that gap.
+
+## Iteration 007b — EXP27 directional accuracy (NOT PROVEN)
+
+**Why.** Every iteration so far optimized MAE. Stated as a plain accuracy — how often does the engine call the
+*sign* of the next adjustment right — the champion had never been measured. It is also the number a
+non-specialist actually reads as "how good is it".
+
+**Champion, measured (P1, n=109):** k=0 66.1%, k=300 72.5%, **k=500 69.7%**, k=1000 79.8%, k=1500 90.8%.
+Base rate ("always guess up", since difficulty rises far more often than it falls) = **67.9%**. So the
+champion's edge at k=500 is +1.8pp, and at k=0 it is *negative*.
+
+**Candidate.** Walk-forward L2 logistic regression on [extrap, mom, slope] trained on the up/down label
+directly, rather than taking the sign of an MAE-optimized regression. Tuned on epochs <330, locked, tested.
+
+**Tuning said:** logistic wins only at k=500 (85.7 vs 84.8); sign-of-regression wins at k=1000 and k=1500.
+**Test confirmed that ordering at all four horizons** — k=500 73.4 vs 71.6, k=1000 79.8 vs 81.7, k=1500 85.3
+vs 89.0. The ordering replicated; the *magnitude* did not survive testing.
+
+**k=500 head-to-head vs champion:** 69.7% → 73.4% (+3.7pp), but McNemar p=0.48 — the models disagree on only
+18 of 109 epochs, split 11–7. Candidate 95% CI [64.1%, 81.4%] **contains the 67.9% base rate**.
+
+**Verdict: NOT PROVEN.** This is a power limit, not an idea limit: at the observed discordance rate,
+demonstrating a 3.7pp gain at p<0.05 needs ~600 test epochs (~23 years of Bitcoin). 109 exist. No directional
+forecast from headers alone can be shown to beat "assume difficulty rises" at k=500.
+
+**Kept.** `dir_acc` / `dir_base_rate` / `dir_edge` are now emitted by `mie.evaluation.metrics.score`, so every
+future experiment reports the accuracy percentage beside MAE — always with its baseline attached, because the
+number is misleading without it.

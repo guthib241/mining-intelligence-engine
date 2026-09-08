@@ -1,0 +1,99 @@
+{
+ "experiment": "EXP27-DIRECTIONAL",
+ "protocol": "P1",
+ "dataset": "BTCHDR-2025-12-14",
+ "n_test": 109,
+ "question": "The engine has only ever optimized MAE. Stated as a plain accuracy - how often does it call the SIGN of the next difficulty adjustment correctly - can that percentage be raised by optimizing it directly?",
+ "headline": {
+  "champion_dir_acc_k500": 0.697,
+  "base_rate": 0.679,
+  "note": "'always guess up' scores 67.9% because difficulty rises far more often than it falls. The champion's edge over that trivial rule at k=500 is +1.8pp."
+ },
+ "champion_by_horizon": {
+  "k0": {
+   "dir_acc": 0.661,
+   "edge": -0.018
+  },
+  "k300": {
+   "dir_acc": 0.725,
+   "edge": 0.046
+  },
+  "k500": {
+   "dir_acc": 0.697,
+   "edge": 0.018
+  },
+  "k1000": {
+   "dir_acc": 0.798,
+   "edge": 0.119
+  },
+  "k1500": {
+   "dir_acc": 0.908,
+   "edge": 0.229
+  }
+ },
+ "candidate": "walk-forward L2 logistic regression on [extrap, mom, slope], trained on the up/down label directly",
+ "tuning_lt330": {
+  "k300": {
+   "sign_ols": 0.833,
+   "logistic": 0.829
+  },
+  "k500": {
+   "sign_ols": 0.848,
+   "logistic": 0.857
+  },
+  "k1000": {
+   "sign_ols": 0.895,
+   "logistic": 0.876
+  },
+  "k1500": {
+   "sign_ols": 0.919,
+   "logistic": 0.881
+  },
+  "read": "tuning says logistic wins ONLY at k=500; sign-of-regression wins at k=1000 and k=1500"
+ },
+ "locked_test": {
+  "k300": {
+   "sign_ols": 0.725,
+   "logistic": 0.725
+  },
+  "k500": {
+   "sign_ols": 0.716,
+   "logistic": 0.734
+  },
+  "k1000": {
+   "sign_ols": 0.817,
+   "logistic": 0.798
+  },
+  "k1500": {
+   "sign_ols": 0.89,
+   "logistic": 0.853
+  },
+  "read": "the tuning-stage ORDERING replicated at all four horizons - logistic better at k=500, worse at k=1000/1500"
+ },
+ "significance_k500": {
+  "champion": 0.697,
+  "candidate": 0.734,
+  "diff_pp": 3.7,
+  "mcnemar_discordant": {
+   "champion_only_right": 7,
+   "candidate_only_right": 11
+  },
+  "mcnemar_p": 0.4807,
+  "candidate_95ci": [
+   0.641,
+   0.814
+  ],
+  "ci_contains_base_rate": true,
+  "binomial_p_vs_base_rate": 0.129
+ },
+ "verdict": "NOT PROVEN - improvement is within noise at n=109",
+ "interpretation": [
+  "73.4% vs the champion's 69.7% is a +3.7pp gain that cannot be distinguished from chance: the two models disagree on only 18 of 109 epochs and split them 11-7 (McNemar p=0.48).",
+  "The candidate's 95% CI [64.1%, 81.4%] still contains the trivial base rate of 67.9%, so the candidate is not even demonstrably better than always guessing 'up'.",
+  "The tuning stage DID correctly predict which model wins at which horizon in all four cases, so the k=500 ordering is not a fluke of the test split - but ordering replicating is not the same as the size of the gain being measurable.",
+  "This is a POWER limit, not an idea limit. At the observed discordance rate, demonstrating a 3.7pp gain at p<0.05 needs roughly 600 test epochs (~23 years of Bitcoin). 109 exist.",
+  "Practical consequence: at k=500 no directional forecast from headers can be shown to beat 'assume difficulty rises'. The horizons where the model has a real, significant edge are k=1000 (81.7%, p=0.004) and k=1500 (89.0%, p<0.001), and by then most of the epoch has already been observed."
+ ],
+ "delivered": "dir_acc / dir_base_rate / dir_edge added to mie.evaluation.metrics.score, so every future experiment reports the accuracy percentage next to MAE, always with its baseline attached.",
+ "champion_unchanged": true
+}

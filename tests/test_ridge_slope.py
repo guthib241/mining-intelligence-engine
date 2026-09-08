@@ -92,3 +92,15 @@ def test_build_frame_exposes_slope():
     D = np.repeat(np.linspace(1e13, 2e13, n // EPOCH + 1)[: n // EPOCH], EPOCH)[:n]
     fr = build_frame(t, D, 500, 2)
     assert "slope" in fr.columns and pd.notna(fr.slope).any()
+
+
+def test_directional_accuracy_metric():
+    """dir_acc must be reported with its base rate: the metric is meaningless alone when classes are skewed."""
+    from mie.evaluation import score
+    y = np.array([0.05, 0.02, 0.03, -0.01, 0.04])       # 4 up, 1 down -> base rate 0.8
+    s = score(y, np.array([0.04, 0.01, 0.02, -0.02, 0.03]))
+    assert s["dir_acc"] == 1.0 and s["dir_base_rate"] == pytest.approx(0.8)
+    assert s["dir_edge"] == pytest.approx(0.2)
+    # a model that always says "up" scores the base rate exactly, and shows zero edge
+    s2 = score(y, np.full(5, 0.01))
+    assert s2["dir_acc"] == pytest.approx(0.8) and s2["dir_edge"] == pytest.approx(0.0)
