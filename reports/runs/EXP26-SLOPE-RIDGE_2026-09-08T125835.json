@@ -1,0 +1,408 @@
+{
+ "experiment_id": "EXP26-SLOPE-RIDGE",
+ "hypothesis": "Within-epoch pace slope + ridge shrinkage vs BLEND-v1 under P1",
+ "datasets": [
+  "BTCHDR-2025-12-14"
+ ],
+ "git_commit": "2789915",
+ "git_dirty": true,
+ "config": {},
+ "seed": 0,
+ "started": "2026-09-08T12:58:35.629416+00:00Z",
+ "primary": true,
+ "status": "COMPLETED",
+ "resources": {
+  "runtime_s": 47.724,
+  "peak_mem_mb": 89.6,
+  "cpu_s": 47.303
+ },
+ "metrics": {
+  "k0": {
+   "champion": 3.2728,
+   "candidate": 3.2728,
+   "verdict": "REJECT"
+  },
+  "k300": {
+   "champion": 3.2285,
+   "candidate": 3.2087,
+   "verdict": "NO MATERIAL DIFFERENCE"
+  },
+  "k500": {
+   "champion": 2.955,
+   "candidate": 3.0262,
+   "verdict": "REJECT"
+  },
+  "k1000": {
+   "champion": 2.0565,
+   "candidate": 2.0789,
+   "verdict": "REJECT"
+  },
+  "k1500": {
+   "champion": 1.1008,
+   "candidate": 1.0644,
+   "verdict": "INTERESTING"
+  }
+ },
+ "full": {
+  "k0": {
+   "features": [
+    "mom"
+   ],
+   "tuning_lt330": {
+    "0.0": 5.1763,
+    "0.3": 5.1785,
+    "1.0": 5.1838,
+    "3.0": 5.2008,
+    "10.0": 5.2593,
+    "30.0": 5.4468
+   },
+   "alpha_selected": 0.0,
+   "MAE": {
+    "baseline": 3.6072,
+    "champion": 3.2728,
+    "candidate": 3.2728,
+    "null": 3.4505
+   },
+   "paired": {
+    "n": 109,
+    "mean": -6.518740695046791e-17,
+    "ci95": [
+     -2.4776223278573917e-16,
+     1.1738741888480335e-16
+    ],
+    "p_wilcoxon": 1.0,
+    "win_rate": 0.3394495412844037
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 3.727,
+     "candidate": 3.727
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 3.651,
+     "candidate": 3.651
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 3.054,
+     "candidate": 3.054
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 3.101,
+     "candidate": 3.101
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 3.185,
+     "candidate": 3.185
+    }
+   },
+   "gates": {
+    "same_protocol": true,
+    "beats_champion_oos": false,
+    "effect_size": false,
+    "paired_significant": false,
+    "no_tail_regression": true,
+    "calibrated": true,
+    "regime_no_catastrophe": true,
+    "beats_null": true,
+    "complexity_acceptable": true,
+    "economics_not_worse": true
+   },
+   "verdict": "REJECT"
+  },
+  "k300": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "tuning_lt330": {
+    "0.0": 4.0816,
+    "0.3": 4.0792,
+    "1.0": 4.0743,
+    "3.0": 4.0664,
+    "10.0": 4.0964,
+    "30.0": 4.2825
+   },
+   "alpha_selected": 3.0,
+   "MAE": {
+    "baseline": 3.6072,
+    "champion": 3.2285,
+    "candidate": 3.2087,
+    "null": 3.8738
+   },
+   "paired": {
+    "n": 109,
+    "mean": 0.019734530389279428,
+    "ci95": [
+     -0.17293455837952204,
+     0.21240361915808093
+    ],
+    "p_wilcoxon": 0.5304467136073835,
+    "win_rate": 0.5596330275229358
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 4.461,
+     "candidate": 3.961
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 4.191,
+     "candidate": 4.265
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 2.718,
+     "candidate": 2.744
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 3.11,
+     "candidate": 3.08
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 2.558,
+     "candidate": 2.515
+    }
+   },
+   "gates": {
+    "same_protocol": true,
+    "beats_champion_oos": true,
+    "effect_size": false,
+    "paired_significant": false,
+    "no_tail_regression": true,
+    "calibrated": true,
+    "regime_no_catastrophe": true,
+    "beats_null": true,
+    "complexity_acceptable": true,
+    "economics_not_worse": true
+   },
+   "verdict": "NO MATERIAL DIFFERENCE"
+  },
+  "k500": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "tuning_lt330": {
+    "0.0": 3.5055,
+    "0.3": 3.5036,
+    "1.0": 3.4996,
+    "3.0": 3.4959,
+    "10.0": 3.5501,
+    "30.0": 3.8629
+   },
+   "alpha_selected": 3.0,
+   "MAE": {
+    "baseline": 3.6072,
+    "champion": 2.955,
+    "candidate": 3.0262,
+    "null": 3.9259
+   },
+   "paired": {
+    "n": 109,
+    "mean": -0.07124786005247401,
+    "ci95": [
+     -0.24887090774632364,
+     0.10637518764137564
+    ],
+    "p_wilcoxon": 0.7658633988525849,
+    "win_rate": 0.48623853211009177
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 4.319,
+     "candidate": 4.392
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 3.669,
+     "candidate": 3.793
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 2.768,
+     "candidate": 2.764
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 2.719,
+     "candidate": 2.708
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 2.289,
+     "candidate": 2.484
+    }
+   },
+   "gates": {
+    "same_protocol": true,
+    "beats_champion_oos": false,
+    "effect_size": false,
+    "paired_significant": false,
+    "no_tail_regression": true,
+    "calibrated": true,
+    "regime_no_catastrophe": true,
+    "beats_null": true,
+    "complexity_acceptable": true,
+    "economics_not_worse": true
+   },
+   "verdict": "REJECT"
+  },
+  "k1000": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "tuning_lt330": {
+    "0.0": 2.3767,
+    "0.3": 2.3772,
+    "1.0": 2.3804,
+    "3.0": 2.3958,
+    "10.0": 2.5415,
+    "30.0": 3.0805
+   },
+   "alpha_selected": 0.0,
+   "MAE": {
+    "baseline": 3.6072,
+    "champion": 2.0565,
+    "candidate": 2.0789,
+    "null": 4.6047
+   },
+   "paired": {
+    "n": 109,
+    "mean": -0.022367527431383025,
+    "ci95": [
+     -0.22378360335709346,
+     0.17904854849432744
+    ],
+    "p_wilcoxon": 0.8691273075521053,
+    "win_rate": 0.4954128440366973
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 2.644,
+     "candidate": 1.862
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 2.681,
+     "candidate": 2.661
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 1.953,
+     "candidate": 2.167
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 1.583,
+     "candidate": 1.649
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 1.876,
+     "candidate": 1.879
+    }
+   },
+   "gates": {
+    "same_protocol": true,
+    "beats_champion_oos": false,
+    "effect_size": false,
+    "paired_significant": false,
+    "no_tail_regression": true,
+    "calibrated": true,
+    "regime_no_catastrophe": true,
+    "beats_null": true,
+    "complexity_acceptable": true,
+    "economics_not_worse": true
+   },
+   "verdict": "REJECT"
+  },
+  "k1500": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "tuning_lt330": {
+    "0.0": 1.2869,
+    "0.3": 1.2859,
+    "1.0": 1.2877,
+    "3.0": 1.344,
+    "10.0": 1.644,
+    "30.0": 2.4878
+   },
+   "alpha_selected": 0.3,
+   "MAE": {
+    "baseline": 3.6072,
+    "champion": 1.1008,
+    "candidate": 1.0644,
+    "null": 4.6529
+   },
+   "paired": {
+    "n": 109,
+    "mean": 0.03638132707095965,
+    "ci95": [
+     -0.0676825105818969,
+     0.1404451647238162
+    ],
+    "p_wilcoxon": 0.6998934547050095,
+    "win_rate": 0.47706422018348627
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 0.975,
+     "candidate": 1.06
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 1.149,
+     "candidate": 0.965
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 1.019,
+     "candidate": 1.017
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 1.207,
+     "candidate": 1.196
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 1.051,
+     "candidate": 1.08
+    }
+   },
+   "gates": {
+    "same_protocol": true,
+    "beats_champion_oos": true,
+    "effect_size": true,
+    "paired_significant": false,
+    "no_tail_regression": true,
+    "calibrated": true,
+    "regime_no_catastrophe": true,
+    "beats_null": true,
+    "complexity_acceptable": true,
+    "economics_not_worse": true
+   },
+   "verdict": "INTERESTING"
+  }
+ },
+ "verdict": "NO MATERIAL DIFFERENCE",
+ "next_action": "record negative result; champion unchanged"
+}

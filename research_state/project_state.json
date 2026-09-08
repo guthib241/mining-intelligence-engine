@@ -1,9 +1,9 @@
 {
- "git_commit": "6126c4e",
+ "git_commit": "2789915",
  "git_dirty": true,
  "champion": {
   "model_id": "BLEND-v1",
-  "code": "lib/forecast.py walk() with ['extrap','mom']",
+  "code": "mie.models.OLSBlend(features=['extrap','mom']) via mie.forecasting.walk_forward under protocol P1 (mie.evaluation.protocols)",
   "data_version": "BTCHDR-2025-12-14",
   "feature_version": "fv1 (from-start pace extrap, prev-epoch adj)",
   "protocol": "P1",
@@ -27,7 +27,9 @@
   "forecast_value": "~$3.7k/EH/s/epoch vs naive at k=500, P=90k",
   "decision_value": "\u22480 for binary run/curtail",
   "realized_value": "none",
-  "level": "L4 + calibrated intervals"
+  "level": "L4 + calibrated intervals",
+  "reproduction": "REPRO-BLEND-v1 (reports/runs) + tests/test_champion_regression.py",
+  "promotion_rule": "mie.evaluation.gates.promotion_gates; replacement is manual after an independent rerun"
  },
  "candidates": [],
  "hypotheses": {
@@ -87,10 +89,23 @@
    "EXP22",
    "EXP23",
    "EXP24",
-   "EXP25"
+   "EXP25",
+   "REPRO-BLEND-v1",
+   "CHALLENGE",
+   "CHALLENGE",
+   "CHALLENGE",
+   "REPRO-BLEND-v1",
+   "EXP-SHA-LADDER",
+   "REPRO-BLEND-v1",
+   "EXP26-SLOPE-RIDGE"
   ],
-  "failed": [],
-  "count": 28
+  "failed": [
+   {
+    "id": "CHALLENGE",
+    "class": "CODE_FAILURE"
+   }
+  ],
+  "count": 38
  },
  "queue_top": [
   {
@@ -133,11 +148,14 @@
   "manifest_fees.json": "MEMPOOL-FEES-3Y-S4"
  },
  "governor": {
-  "iteration": 1,
-  "used": 0,
+  "iteration": 3,
+  "used": 2,
   "cap": 3,
-  "remaining": 3,
-  "ids": []
+  "remaining": 1,
+  "ids": [
+   "EXP-SHA-LADDER",
+   "EXP26-SLOPE-RIDGE"
+  ]
  },
  "latest_report": "ITERATION_006_FINAL.md",
  "code_version": "mie 0.1.0"

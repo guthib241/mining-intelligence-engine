@@ -1,0 +1,319 @@
+{
+ "experiment": "EXP26-SLOPE-RIDGE",
+ "protocol": "P1",
+ "dataset": "BTCHDR-2025-12-14",
+ "hypothesis": "H023: the champion prices the epoch remainder at the from-start MEAN pace, discarding any TREND in that pace within the observed window. If within-epoch hashrate drift persists into the unobserved remainder, a slope term should carry information that 'extrap' averages away.",
+ "distinct_from": {
+  "EXP8 (win300/win150/ewma)": "those REPLACED the pace level with a recent-window pace and lost the level information; 'slope' is a trend term used ALONGSIDE the from-start level, so the regression can use both",
+  "EXP22 (residual covariate 'disp')": "dispersion (var/mean^2) is a spread measure, not a directional trend; it was also insufficient at k=0"
+ },
+ "design": {
+  "candidate": "RidgeBlend(features=[extrap, mom, slope], alpha tuned)",
+  "champion": "BLEND-v1 = OLSBlend(features=[extrap, mom])",
+  "tuning_stage": "alpha grid [0,0.3,1,3,10,30] selected on epochs <330 ONLY (protocol P1 'tuning_allowed_on'), n=230 rows",
+  "test_stage": "locked spec on untouched test epochs 350-458, n=109, identical rows for every model",
+  "ridge_rationale": "60-row training window, not model capacity"
+ },
+ "tuning_stage_evidence_lt330": {
+  "note": "the reason the candidate was built: slope correlated with the champion's residual on the TUNING epochs",
+  "slope_vs_champion_residual": {
+   "k300": {
+    "rho": 0.022,
+    "p": 0.7437
+   },
+   "k500": {
+    "rho": -0.053,
+    "p": 0.4272
+   },
+   "k1000": {
+    "rho": -0.134,
+    "p": 0.0422
+   },
+   "k1500": {
+    "rho": -0.189,
+    "p": 0.0041
+   }
+  },
+  "in_sample_resid_sd_pp": {
+   "k300": [
+    5.699,
+    5.693
+   ],
+   "k500": [
+    4.809,
+    4.743
+   ],
+   "k1000": [
+    3.272,
+    3.172
+   ],
+   "k1500": [
+    1.657,
+    1.578
+   ]
+  }
+ },
+ "results_oos": {
+  "k0": {
+   "features": [
+    "mom"
+   ],
+   "alpha_selected": 0.0,
+   "MAE_champion_pct": 3.2728,
+   "MAE_candidate_pct": 3.2728,
+   "rel_change_pct": 0.0,
+   "paired": {
+    "n": 109,
+    "mean": -6.518740695046791e-17,
+    "ci95": [
+     -2.4776223278573917e-16,
+     1.1738741888480335e-16
+    ],
+    "p_wilcoxon": 1.0,
+    "win_rate": 0.3394495412844037
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 3.727,
+     "candidate": 3.727
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 3.651,
+     "candidate": 3.651
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 3.054,
+     "candidate": 3.054
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 3.101,
+     "candidate": 3.101
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 3.185,
+     "candidate": 3.185
+    }
+   },
+   "verdict": "REJECT"
+  },
+  "k300": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "alpha_selected": 3.0,
+   "MAE_champion_pct": 3.2285,
+   "MAE_candidate_pct": 3.2087,
+   "rel_change_pct": 0.61,
+   "paired": {
+    "n": 109,
+    "mean": 0.019734530389279428,
+    "ci95": [
+     -0.17293455837952204,
+     0.21240361915808093
+    ],
+    "p_wilcoxon": 0.5304467136073835,
+    "win_rate": 0.5596330275229358
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 4.461,
+     "candidate": 3.961
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 4.191,
+     "candidate": 4.265
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 2.718,
+     "candidate": 2.744
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 3.11,
+     "candidate": 3.08
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 2.558,
+     "candidate": 2.515
+    }
+   },
+   "verdict": "NO MATERIAL DIFFERENCE"
+  },
+  "k500": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "alpha_selected": 3.0,
+   "MAE_champion_pct": 2.955,
+   "MAE_candidate_pct": 3.0262,
+   "rel_change_pct": -2.41,
+   "paired": {
+    "n": 109,
+    "mean": -0.07124786005247401,
+    "ci95": [
+     -0.24887090774632364,
+     0.10637518764137564
+    ],
+    "p_wilcoxon": 0.7658633988525849,
+    "win_rate": 0.48623853211009177
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 4.319,
+     "candidate": 4.392
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 3.669,
+     "candidate": 3.793
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 2.768,
+     "candidate": 2.764
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 2.719,
+     "candidate": 2.708
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 2.289,
+     "candidate": 2.484
+    }
+   },
+   "verdict": "REJECT"
+  },
+  "k1000": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "alpha_selected": 0.0,
+   "MAE_champion_pct": 2.0565,
+   "MAE_candidate_pct": 2.0789,
+   "rel_change_pct": -1.09,
+   "paired": {
+    "n": 109,
+    "mean": -0.022367527431383025,
+    "ci95": [
+     -0.22378360335709346,
+     0.17904854849432744
+    ],
+    "p_wilcoxon": 0.8691273075521053,
+    "win_rate": 0.4954128440366973
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 2.644,
+     "candidate": 1.862
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 2.681,
+     "candidate": 2.661
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 1.953,
+     "candidate": 2.167
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 1.583,
+     "candidate": 1.649
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 1.876,
+     "candidate": 1.879
+    }
+   },
+   "verdict": "REJECT"
+  },
+  "k1500": {
+   "features": [
+    "extrap",
+    "mom",
+    "slope"
+   ],
+   "alpha_selected": 0.3,
+   "MAE_champion_pct": 1.1008,
+   "MAE_candidate_pct": 1.0644,
+   "rel_change_pct": 3.31,
+   "paired": {
+    "n": 109,
+    "mean": 0.03638132707095965,
+    "ci95": [
+     -0.0676825105818969,
+     0.1404451647238162
+    ],
+    "p_wilcoxon": 0.6998934547050095,
+    "win_rate": 0.47706422018348627
+   },
+   "regimes": {
+    "2021": {
+     "baseline": 3.728,
+     "champion": 0.975,
+     "candidate": 1.06
+    },
+    "2022": {
+     "baseline": 3.608,
+     "champion": 1.149,
+     "candidate": 0.965
+    },
+    "2023": {
+     "baseline": 3.711,
+     "champion": 1.019,
+     "candidate": 1.017
+    },
+    "2024": {
+     "baseline": 3.646,
+     "champion": 1.207,
+     "candidate": 1.196
+    },
+    "2025": {
+     "baseline": 3.407,
+     "champion": 1.051,
+     "candidate": 1.08
+    }
+   },
+   "verdict": "INTERESTING"
+  }
+ },
+ "verdict": "NO MATERIAL DIFFERENCE - hypothesis H023 DESTROYED",
+ "interpretation": [
+  "The tuning-set signal did not replicate out-of-sample. At k=1500, where the tuning evidence was strongest (rho=-0.189, p=0.0041), the out-of-sample paired test is null (p=0.70) and the candidate WINS ONLY 48% of epochs while showing a lower mean MAE - i.e. the -3.31% headline is carried by a few large residuals, not by consistent improvement.",
+  "At k=500 and k=1000 the candidate is WORSE than the champion out-of-sample.",
+  "Ridge shrinkage bought nothing: the tuning curve is nearly flat in alpha and the selected alpha was 0.0 at two horizons. With only 2-3 features, OLS at n=60 is not meaningfully over-fitting, so there was no variance for the penalty to remove.",
+  "This is the pre-registered failure mode of tuning-set selection, and the protocol caught it. Had alpha and the feature set been chosen on the test epochs, k=1500 would have been reported as a 3.3% improvement."
+ ],
+ "conclusion": "Within-epoch pace trend is not exploitable from headers alone. This closes the last untested representation idea on the existing feature set and corroborates remaining_information_gap.json: the residual is a NEW-INFORMATION problem, not a representation or model-complexity problem.",
+ "champion_unchanged": true,
+ "artifacts": {
+  "run_file": "reports/runs/EXP26-SLOPE-RIDGE_2026-09-08T125835.json",
+  "code": [
+   "mie/features/difficulty.py:pace_slope",
+   "mie/models/difficulty.py:RidgeBlend",
+   "mie/experiments/library.py:EXP26-SLOPE-RIDGE"
+  ],
+  "tests": "tests/test_ridge_slope.py"
+ }
+}

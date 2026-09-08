@@ -1,4 +1,4 @@
 from .base import QS, BaseModel
-from .difficulty import REGISTRY, DriftModel, KalmanHashrate, NaiveZero, OLSBlend
+from .difficulty import REGISTRY, DriftModel, KalmanHashrate, NaiveZero, OLSBlend, RidgeBlend
 
-__all__=["BaseModel","QS","NaiveZero","DriftModel","OLSBlend","KalmanHashrate","REGISTRY"]
+__all__=["BaseModel","QS","NaiveZero","DriftModel","OLSBlend","RidgeBlend","KalmanHashrate","REGISTRY"]

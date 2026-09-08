@@ -7,7 +7,8 @@
   "observer-spread propagation trends",
   "orphan risk from public arrivals (two disjoint feature sources null)",
   "model ensembling (error corr 0.99)",
-  "difficulty forecasting as primary value target (EXP25: 8-26% of revenue variance)"
+  "difficulty forecasting as primary value target (EXP25: 8-26% of revenue variance)",
+  "within-epoch pace TREND (slope) as an additive feature + ridge shrinkage (EXP26: tuning-set signal rho=-0.189 p=.004 at k=1500 did not replicate; worse at k=500/k=1000; paired null everywhere)"
  ],
  "blocked_branches": [
   "fee/mempool economics (tx data)",
@@ -78,5 +79,8 @@
  ],
  "new_data_sources": [
   "web_fetch channel: mempool.space mining/fees endpoints (3y, 12h buckets); api.blockchain.info mempool charts (5w)"
- ]
+ ],
+ "notes": {
+  "iter007": "EXP26 closed the last untested representation idea on the header-only feature set. Ridge is available (mie.models.RidgeBlend) but bought nothing at 2-3 features / 60-row windows. Priority is unchanged and is a data-acquisition priority, not a modelling one."
+ }
 }

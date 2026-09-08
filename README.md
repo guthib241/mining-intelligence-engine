@@ -29,7 +29,7 @@ python -m mie new-iteration "note"                                # reset the 3-
 ## Data setup (not stored in git — regenerable)
 ```bash
 git clone https://github.com/nip-333/btc-archive && git clone https://github.com/nip-333/btc-current
-python data/parse_headers.py            # -> data/processed/headers_compact.npz  (927,905 verified headers)
+python data/build_compact.py             # -> data/processed/headers_compact.npz  (927,905 verified headers)
 git clone https://github.com/jptrustlearning/btc btc            # daily BTC/USD
 git clone https://github.com/bitcoin-data/block-arrival-times   # CC0 multi-node arrivals
 python data/ingest_arrivals.py

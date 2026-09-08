@@ -89,8 +89,11 @@ Kept as evidence: negative results are results.
 | **Propagation → orphan risk** | **OR 15.3, AUC 0.775 on a temporal holdout** | **Killed by disjoint-observer replication (AUC 0.54). Feature and label shared observer nodes.** |
 | Arrival-time pace | true timestamps beat miner timestamps | Zero difference (all CIs straddle 0) |
 | Residual covariates (12) | many candidates | 0 of 24 survive Bonferroni |
+| **Within-epoch pace trend (`slope`) + ridge** | **corr with champion residual on tuning epochs: rho = −0.189, p = 0.004 at k=1500; in-sample residual sd 1.657 → 1.578pp** | **Did not replicate out-of-sample. Worse than champion at k=500 and k=1000; at k=1500 the paired test is null (p = 0.70) and the candidate wins only 48% of epochs — the −3.3% headline is carried by a few large residuals, not consistent gain.** |
 
 **Lesson recorded:** a temporal holdout is *not* independent validation when the feature and the label come from the same measurement source.
+
+**Lesson recorded (EXP26):** a covariate that correlates with the champion's residual *on the tuning epochs* is not a predictor. Selecting `alpha` and the feature set on the test epochs would have reported k=1500 as a 3.3% improvement; the tuning/test split is what prevented that. Ridge bought nothing — with 2–3 features the 60-row window is not over-fitting enough for a penalty to help, and the selected alpha was 0.0 at two of five horizons.
 
 ---
 
