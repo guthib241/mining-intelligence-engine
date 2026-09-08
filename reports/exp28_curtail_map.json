@@ -1,0 +1,45 @@
+{
+ "experiment": "EXP28-CURTAIL-MAP",
+ "protocol": "P1",
+ "k": 500,
+ "n_epochs": 109,
+ "question": "An AI cannot do the hashing (proved: EXP-SHA-LADDER, full-round accuracy 50.4% vs 50% chance). Its only route to value in mining is deciding WHEN to hash. So: across the electricity-price / hardware-efficiency plane, where does the difficulty forecast actually change a run-or-curtail decision, and what is that worth?",
+ "why_this_was_needed": "FINDINGS records binary run/stop decision value as ~$0, but that was one scenario (E=$0.06/kWh) where the miner is profitable whatever difficulty does, so the decision never flips. A single scenario cannot support a general claim. This maps 32 scenarios spanning $0.03-$0.25/kWh and 17-30 J/TH.",
+ "scenario": {
+  "H_ths": 1000,
+  "btc_price_usd": 90000,
+  "days_per_epoch": 14,
+  "revenue_per_epoch_usd": 1620,
+  "economics": "parametric; only the difficulty forecasts are empirical (champion vs naive, P1 test epochs)"
+ },
+ "headline": {
+  "best_forecast_gain_usd_per_epoch": 2.1,
+  "as_pct_of_epoch_revenue": 0.13,
+  "perfect_foresight_gain_usd_per_epoch": 2.1,
+  "cells_where_forecast_HURT": [
+   "eta21/E0.09: -0.17",
+   "eta25/E0.09: -0.18",
+   "eta25/E0.18: -0.80",
+   "eta30/E0.09: -0.70",
+   "eta30/E0.15: -0.80"
+  ],
+  "read": "On a 1 PH/s farm turning over $1,620 per epoch, the best the difficulty forecast can do for the run/curtail decision is $2.10 - and a PERFECT difficulty oracle caps at the same $2.10. In five of 32 scenarios the forecast makes the decision WORSE than ignoring it."
+ },
+ "why_it_is_worth_nothing": "The run/stop decision only flips when profit is within one difficulty move of zero. A difficulty move is ~3.3% of revenue. So the decision is live only in a thin band around breakeven - and inside that band profit is by definition ~$0, so calling it correctly earns ~$0. The forecast is accurate but the decision it feeds is worthless.",
+ "what_actually_drives_the_decision": {
+  "electricity_price": "at $0.03/kWh a 25 J/TH miner runs 109 of 109 epochs; at $0.25/kWh it runs 33. THAT is the decision.",
+  "breakeven_electricity_by_efficiency_usd_kWh": {
+   "17 J/TH": 0.228,
+   "21 J/TH": 0.1846,
+   "25 J/TH": 0.155,
+   "30 J/TH": 0.1292
+  },
+  "conclusion": "The run/curtail decision is dominated by electricity price and BTC price. Difficulty is a rounding error in it."
+ },
+ "verdict": "DECISION BAND FOUND BUT ECONOMICALLY EMPTY - generalizes the single-scenario $0 result to the whole realistic parameter space",
+ "strategic_consequence": "An AI meant to decide WHEN to mine should forecast ELECTRICITY PRICE, not difficulty. Difficulty forecasting remains defensible for forward-selling/hashprice exposure (a linear exposure, where the 3.3% does translate into dollars) but not for the on/off decision. This is the third independent line of evidence that the difficulty track is the smallest component: EXP25 put it at 8-26% of revenue variance, the VOI map at $32k of $139k perfect-information value, and now the curtail decision at ~$0.",
+ "artifacts": {
+  "run_file": "reports/runs/EXP28-CURTAIL-MAP_2026-09-08T210300.json",
+  "code": "mie/experiments/library.py:EXP28-CURTAIL-MAP"
+ }
+}

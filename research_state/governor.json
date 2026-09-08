@@ -1,15 +1,15 @@
 {
- "iteration": 3,
+ "iteration": 4,
  "used": [
   {
-   "id": "EXP-SHA-LADDER",
-   "at": "2026-09-07T18:27:16.278866+00:00"
+   "id": "EXP28-CURTAIL-MAP",
+   "at": "2026-09-08T21:02:05.503412+00:00"
   },
   {
-   "id": "EXP26-SLOPE-RIDGE",
-   "at": "2026-09-08T12:59:23.353890+00:00"
+   "id": "EXP28-CURTAIL-MAP",
+   "at": "2026-09-08T21:03:01.271124+00:00"
   }
  ],
- "opened": "2026-09-07T18:00:53.101834+00:00",
- "note": "iteration 007: SHA-256 learnability ladder (operator-directed)"
+ "opened": "2026-09-08T21:01:56.062750+00:00",
+ "note": "iteration 008: operator-directed - where is an AI decision worth anything in mining"
 }

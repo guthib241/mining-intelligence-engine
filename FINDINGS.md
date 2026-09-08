@@ -108,6 +108,10 @@ Per EH/s per 14-day epoch, from `reports/voi_target_map.json`:
 | **Difficulty** | **8–26%** | **$32k** | **$4.9k vs naive / $8.8k vs standard** |
 
 - Binary run/stop decision value of the difficulty forecast: **≈ $0** — the decision only flips at near-zero margin.
+  **EXP28 generalized this across 32 scenarios** ($0.03–$0.25/kWh × 17–30 J/TH): best forecast gain **$2.10 per epoch**
+  on $1,620 of revenue (0.13%), *perfect foresight caps at the same $2.10*, and in 5 of 32 scenarios the forecast makes
+  the decision **worse**. The decision is driven by electricity price (109/109 epochs run at $0.03/kWh, 33/109 at $0.25),
+  not by difficulty. **An AI deciding when to mine should forecast electricity price, not difficulty.**
 - **Realized economic value to date: $0.** Nothing has been traded or operated on.
 
 **The strategic finding:** forecast value is bounded by the target's variance share. Six iterations optimized the *smallest* component.

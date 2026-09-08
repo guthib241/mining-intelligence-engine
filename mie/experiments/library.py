@@ -1,7 +1,7 @@
 """Registered experiments. Each returns a result dict with metrics/percentiles/comparison/verdict/next_action."""
 import numpy as np
 
-from ..economics import MiningEconomics
+from ..economics import MiningEconomics, breakeven_E
 from ..evaluation import compare, promotion_gates, protocol_frame, score
 from ..forecasting import walk_forward
 from ..latent_state import kalman_forecast
@@ -102,6 +102,64 @@ def exp26_slope_ridge(cfg):
     return {"metrics": {k: {"champion": v["MAE"]["champion"], "candidate": v["MAE"]["candidate"], "verdict": v["verdict"]} for k, v in out.items()},
             "full": out, "verdict": "CHAMPION CANDIDATE" if promoted else "NO MATERIAL DIFFERENCE",
             "next_action": f"independent rerun then research/promote.py for {promoted}" if promoted else "record negative result; champion unchanged"}
+
+
+@register("EXP28-CURTAIL-MAP", "Where in the electricity-price / efficiency space does the difficulty forecast change a run-or-curtail decision, and what is it worth?", ["BTCHDR-2025-12-14", "synthetic: parametric energy-price scenarios"], primary=True)
+def exp28_curtail_map(cfg):
+    """F4. The engine cannot mine, so its only route to value is deciding WHEN to mine. FINDINGS records the
+    binary run/stop decision value as ~$0, but that was measured at ONE scenario (E=$0.06/kWh) where the miner
+    is profitable no matter what difficulty does, so the decision never flips and no forecast can matter.
+
+    This maps the decision across the electricity-price / hardware-efficiency plane and finds the band where the
+    decision is actually live. Per-cell it reports how often the forecast flips the decision, the dollars that
+    flipping earns over the naive baseline, and the perfect-foresight ceiling. Economics are parametric; only the
+    difficulty forecasts are empirical (champion vs naive on the P1 test epochs).
+    """
+    k = cfg.get("k", 500)
+    Es = cfg.get("electricity", [0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12])
+    etas = cfg.get("efficiency", [17.0, 21.0, 25.0, 30.0])
+    P = cfg.get("btc_price", 90e3)
+    H = cfg.get("H_ths", 1000.0)
+    fr, _ = protocol_frame("P1", k)
+    p = walk_forward(fr, _champion_models())
+    m = np.isfinite(p["BLEND-v1"]) & np.isfinite(p["naive"])
+    D_now, actual = fr.D_now.values[m], fr.actual.values[m]
+    champ, naive = p["BLEND-v1"][m], p["naive"][m]
+
+    grid, live = {}, []
+    for eta in etas:
+        for E in Es:
+            eco = MiningEconomics(H_ths=H, P=P, eta=eta, E=E)
+            run_c = eco.profit(D_now * np.exp(champ)) > 0
+            run_n = eco.profit(D_now * np.exp(naive)) > 0
+            run_p = eco.profit(D_now * np.exp(actual)) > 0
+            v = {name: eco.decision_value(D_now, actual, f) for name, f in (("champion", champ), ("naive", naive), ("perfect", actual))}
+            cell = {"eta_J_per_TH": eta, "E_usd_kWh": E,
+                    "breakeven_E_usd_kWh": round(float(breakeven_E(float(np.median(D_now)), P, eco.p["R"], eta, eco.p["pool_fee"])), 5),
+                    "epochs_run_perfect": int(run_p.sum()), "epochs_run_champion": int(run_c.sum()),
+                    "decision_flips_vs_naive": int((run_c != run_n).sum()),
+                    "wrong_calls_champion": int((run_c != run_p).sum()),
+                    "value_champion_usd": round(v["champion"], 2), "value_naive_usd": round(v["naive"], 2),
+                    "value_perfect_usd": round(v["perfect"], 2),
+                    "forecast_gain_vs_naive_usd": round(v["champion"] - v["naive"], 2),
+                    "perfect_gain_vs_naive_usd": round(v["perfect"] - v["naive"], 2)}
+            cell["captured_pct"] = round(100 * cell["forecast_gain_vs_naive_usd"] / cell["perfect_gain_vs_naive_usd"], 1) if cell["perfect_gain_vs_naive_usd"] else None
+            grid[f"eta{eta}_E{E}"] = cell
+            if cell["decision_flips_vs_naive"] > 0:
+                live.append(cell)
+
+    best = max(live, key=lambda c: c["forecast_gain_vs_naive_usd"], default=None)
+    return {"scenario": {"k": k, "H_ths": H, "btc_price": P, "n_epochs": int(m.sum()), "days_per_epoch": 14},
+            "grid": grid,
+            "live_band": {"n_cells_with_any_flip": len(live), "n_cells_total": len(grid),
+                          "cells": sorted(live, key=lambda c: -c["forecast_gain_vs_naive_usd"])[:12]},
+            "best_cell": best,
+            "metrics": {"cells_where_decision_is_live": len(live), "of_total": len(grid),
+                        "best_forecast_gain_usd_per_epoch": best["forecast_gain_vs_naive_usd"] if best else 0.0,
+                        "best_cell_E_usd_kWh": best["E_usd_kWh"] if best else None,
+                        "best_cell_eta": best["eta_J_per_TH"] if best else None},
+            "verdict": "DECISION BAND FOUND" if live else "DECISION NEVER LIVE IN THIS GRID",
+            "next_action": "read the live band as the operating region where this forecast is worth anything; outside it the forecast is worth $0 regardless of accuracy"}
 
 
 @register("EXP-SHA-LADDER", "SHA-256 output bits are learnable from input bits (round-reduced ladder + differential analysis)", ["synthetic: generated SHA-256 pairs"], primary=True)

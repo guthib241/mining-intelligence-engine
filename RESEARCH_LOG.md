@@ -110,3 +110,32 @@ forecast from headers alone can be shown to beat "assume difficulty rises" at k=
 **Kept.** `dir_acc` / `dir_base_rate` / `dir_edge` are now emitted by `mie.evaluation.metrics.score`, so every
 future experiment reports the accuracy percentage beside MAE — always with its baseline attached, because the
 number is misleading without it.
+
+## Iteration 008 — EXP28 curtailment decision map (STRATEGIC NEGATIVE)
+
+**Framing.** Operator question: is this project even doing the right thing — an AI that mines instead of a
+traditional rig? Re-ran EXP-SHA-LADDER live to settle it: full-round accuracy **50.4%** vs 50% chance,
+avalanche 0.500, learnability wall at round 4 of 64 (Bitcoin uses 192). An AI cannot do the hashing. Its only
+route to value is deciding **when** to hash. So this iteration asks what that decision is actually worth.
+
+**Why a new experiment.** FINDINGS already recorded run/stop decision value ≈ $0, but at a single scenario
+(E=$0.06/kWh) where the miner is profitable regardless of difficulty, so the decision never flips. One scenario
+cannot support a general claim. EXP28 maps 32 scenarios: $0.03–$0.25/kWh × 17–30 J/TH, 1 PH/s, BTC $90k,
+champion vs naive on the P1 test epochs, economics parametric.
+
+**Result.** Best forecast gain: **$2.10 per epoch** on ~$1,620 of epoch revenue — **0.13%**. Perfect foresight
+caps at the *same* $2.10. In 5 of 32 scenarios the forecast makes the decision **worse** than ignoring it
+(−$0.80 worst). Summed across the grid the gain is indistinguishable from zero.
+
+**Why.** The decision only flips when profit is within one difficulty move (~3.3% of revenue) of zero. Inside
+that band profit is by construction ≈ $0, so calling it right earns ≈ $0. The forecast is accurate; the
+decision it feeds is worthless.
+
+**What does drive it.** Electricity price. A 25 J/TH miner runs 109/109 epochs at $0.03/kWh and 33/109 at
+$0.25/kWh. Breakeven electricity: 17 J/TH $0.228, 21 J/TH $0.185, 25 J/TH $0.155, 30 J/TH $0.129.
+
+**Consequence.** An AI meant to decide *when to mine* should forecast **electricity price**, not difficulty.
+Difficulty forecasting stays defensible for forward-selling / hashprice exposure — a linear exposure where 3.3%
+does translate into dollars — but not for the on/off decision. Third independent line of evidence that the
+difficulty track is the smallest target: EXP25 (8–26% of revenue variance), the VOI map ($32k of $139k), and
+now the curtail decision (~$0).
